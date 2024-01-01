@@ -1,0 +1,40 @@
+body {
+  background: url("../images/bg-noise-white.webp");
+  letter-spacing: 0.1em;
+}
+
+a {
+  transition: all ease 0.5s;
+}
+
+.frontView {
+  margin-top: 75px;
+  min-height: calc(100vh - 278px);
+
+  @include media-breakpoint-up(md) {
+    min-height: calc(100vh - 378px);
+  }
+
+  @include media-breakpoint-up(lg) {
+    min-height: calc(100vh - 278px);
+  }
+
+  @include media-breakpoint-up(xxl) {
+    min-height: calc(100vh - 314px);
+  }
+
+  @include media-breakpoint-up(3xl) {
+    min-height: calc(100vh - 378px);
+  }
+
+  &.index {
+    margin-top: 0;
+  }
+}
+
+.adminView {
+  margin-top: 70px;
+  @include media-breakpoint-up(lg) {
+    width: 85%;
+  }
+}

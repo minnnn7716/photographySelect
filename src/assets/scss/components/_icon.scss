@@ -1,0 +1,270 @@
+.icon-list,
+.icon-close,
+.icon-switch {
+  width: 35px;
+  height: 35px;
+  position: relative;
+}
+
+.icon-list {
+  &::before,
+  &::after {
+    content: "";
+    width: 28px;
+    height: 1px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: $gray-800;
+    transition: all ease 0.3s;
+  }
+
+  &-light {
+    &::before,
+    &::after {
+      background-color: $white;
+    }
+  }
+
+  &::before {
+    top: 40%;
+  }
+
+  &::after {
+    top: 60%;
+  }
+
+  &:hover {
+    &::before {
+      top: 35%;
+    }
+
+    &::after {
+      top: 65%;
+    }
+  }
+}
+
+.icon-plus,
+.icon-close,
+.icon-minus {
+  &::before,
+  &::after {
+    transition: all ease 0.3s;
+    content: "";
+    height: 1px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $gray-800;
+  }
+}
+
+.icon-close {
+  &::before,
+  &::after {
+    width: 28px;
+  }
+
+  &::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  &::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+
+  &:hover {
+    &::before {
+      transform: translate(-50%, -50%) rotate(0);
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(0);
+    }
+  }
+}
+
+.icon-plus {
+  width: 30px;
+  height: 30px;
+  position: relative;
+
+  &::before,
+  &::after {
+    width: 24px;
+  }
+
+  &::before {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+
+  &:hover {
+    &::before {
+      transform: translate(-50%, -50%) rotate(180deg);
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+  }
+}
+
+.table-custom-active .icon-plus {
+  &::before {
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
+
+  &::after {
+    opacity: 0;
+  }
+
+  &:hover {
+    &::before {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+}
+
+.icon-switch {
+  &-default,
+  &-active {
+    transition: all ease 0.3s;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &-active {
+    opacity: 0;
+  }
+
+  &:hover {
+    .icon-switch-active {
+      opacity: 1;
+    }
+  }
+}
+
+.icon-favorite {
+  width: 51px;
+  height: 51px;
+  position: relative;
+
+  .none,
+  .add {
+    width: 35px;
+    width: 35px;
+    transition: all ease 0.3s;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .add {
+    opacity: 0;
+  }
+
+  @include media-breakpoint-up(lg) {
+    &:hover {
+      background-color: $danger-200;
+    }
+  }
+
+  &.active {
+    .add {
+      opacity: 1;
+    }
+  }
+}
+
+.icon-cart {
+  @include media-breakpoint-up(lg) {
+    &:hover {
+      background-color: $primary-300;
+    }
+  }
+}
+
+.icon-check {
+  width: 25px;
+  height: 25px;
+  position: relative;
+  transform: rotate(-45deg);
+  margin-left: 6px;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    background-color: $white;
+    transition: all ease 0.3s;
+  }
+
+  &::before {
+    height: 52%;
+    width: 4px;
+    top: 0;
+    left: 0;
+  }
+
+  &::after {
+    height: 4px;
+    width: 100%;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -52%);
+  }
+
+  &:hover {
+    width: 30px;
+    height: 30px;
+    transform: rotate(0);
+    margin-left: 0;
+
+    &::before {
+      height: 100%;
+      width: 4px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &::after {
+      height: 4px;
+      width: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+  }
+}
+
+.icon-cart-num {
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  bottom: 0;
+  right: -4px;
+  transform: translate(0, -65%);
+  background-color: $danger-700;
+  color: #ffffff;
+  border-radius: 50%;
+
+  span {
+    font-weight: 13px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-45%, -50%);
+  }
+
+  @include media-breakpoint-up(md) {
+    font-weight: 14px;
+    width: 20px;
+    height: 20px;
+    transform: translate(0, -50%);
+  }
+}

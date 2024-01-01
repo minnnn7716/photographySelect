@@ -1,0 +1,92 @@
+.form-floating {
+  border-bottom: 1px solid $gray-800;
+  margin: 12px;
+  transition: all ease 0.5s;
+
+  &.error {
+    margin-bottom: 32px;
+
+    .error-text {
+      opacity: 1;
+    }
+
+    .error-bg {
+      width: 100%;
+    }
+  }
+
+  .error-text {
+    bottom: -2rem;
+    opacity: 0;
+    transition: all ease 0.5s;
+  }
+
+  .error-bg {
+    position: absolute;
+    width: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, rgba(255, 220, 220, 0.5) 1%, rgba(255, 220, 220, 0) 100%);
+    transition: all ease 0.5s;
+  }
+
+  &:last-child.error {
+    margin-bottom: 48px;
+  }
+}
+
+.normalInput {
+  &.error {
+    input {
+      border: 1px solid $danger;
+    }
+
+    .error-text {
+      opacity: 1;
+    }
+  }
+
+  .error-text {
+    opacity: 0;
+    transition: all ease 0.5s;
+  }
+}
+
+.modalInput {
+  &.error {
+    input,
+    select,
+    textarea {
+      border: 1px solid $danger;
+    }
+
+    .error-text {
+      opacity: 1;
+    }
+  }
+
+  .error-text {
+    opacity: 0;
+    transition: all ease 0.5s;
+  }
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: transparent !important;
+}
+
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label,
+.form-floating > .form-control-plaintext ~ label,
+.form-floating > .form-select ~ label {
+  transform: scale(0.85) translateY(-0.8rem) translateX(0.15rem);
+}
+
+.form-floating > .form-control:focus ~ label::after,
+.form-floating > .form-control:not(:placeholder-shown) ~ label::after,
+.form-floating > .form-control-plaintext ~ label::after,
+.form-floating > .form-select ~ label::after {
+  background-color: transparent !important;
+}

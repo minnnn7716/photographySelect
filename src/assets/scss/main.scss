@@ -1,0 +1,20 @@
+// google fonts
+@import url("https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600&family=Lato:wght@300&family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@300;400&display=swap");
+
+// bootstrap
+@import "./vendors/bootstrap";
+
+// swiper
+@import "swiper/css";
+
+// vue3-loading-overlay
+@import url("vue3-loading-overlay/dist/vue3-loading-overlay.css");
+
+// custom
+// --components
+@import "./components/button";
+@import "./components/form";
+@import "./components/icon";
+@import "./components/offcanvas";
+// --base
+@import "./base/base";

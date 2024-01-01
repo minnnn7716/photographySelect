@@ -1,0 +1,26 @@
+.offcanvas {
+  border-left: none !important;
+  border-right: none !important;
+
+  &-backdrop {
+    width: 65vw;
+
+    &.show {
+      opacity: 0 !important;
+
+      @include media-breakpoint-up(lg) {
+        opacity: 0.5 !important;
+      }
+    }
+  }
+}
+
+.offcanvas,
+.offcanvas-xxl,
+.offcanvas-xl,
+.offcanvas-lg,
+.offcanvas-md,
+.offcanvas-sm {
+  --bs-offcanvas-width: 35vw;
+  backdrop-filter: blur(6px);
+}

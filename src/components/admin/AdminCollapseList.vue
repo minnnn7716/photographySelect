@@ -1,0 +1,122 @@
+<script>
+import collapseMixin from '@/mixins/collapseMixin';
+import ProductModal from './ProductModal.vue';
+
+export default {
+  data() {
+    return {
+      collapse: '',
+      isNew: true,
+      tempProduct: {},
+      currentUrl: '',
+    };
+  },
+  mixins: [collapseMixin],
+  components: {
+    ProductModal,
+  },
+  methods: {
+    openModal() {
+      this.collapse.hide();
+      this.isShow = false;
+      this.collapseEmit();
+
+      this.tempProduct = {
+        totalNum: 1,
+        soldNum: 0,
+        rate: '0',
+        rateNum: 0,
+      };
+
+      this.$refs.productModal.showModal();
+    },
+    clickNavLink(path) {
+      this.currentUrl = path;
+      this.routerPush(`/admin/${path}`);
+    },
+  },
+  created() {
+    this.$emitter.on('close-collapse', (data) => {
+      if (data === false) {
+        this.isShow = data;
+        this.collapse.hide();
+      }
+    });
+  },
+  mounted() {
+    // eslint-disable-next-line no-underscore-dangle
+    const url = this.$router.currentRoute._value.path.split('/')[2];
+    this.currentUrl = url;
+  },
+};
+</script>
+
+<template>
+  <button
+    type="button"
+    class="d-lg-none btn px-1 px-lg-3 py-2 border-0"
+    @click="toggleCollapse"
+  >
+    <div class="icon-list icon-list-light"></div>
+  </button>
+
+  <div class="collapse navbar-collapse" ref="collapse">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item border-bottom border-gray-400">
+        <button
+          type="button"
+          class="nav-link pt-6 pb-4 text-white fw-light"
+          @click="openModal"
+        >
+          新增商品
+        </button>
+      </li>
+      <li class="nav-item border-bottom border-gray-400">
+        <a
+          @click.prevent="clickNavLink('products')"
+          class="nav-link py-4 fw-light"
+          :class="{
+            'text-primary': currentUrl === 'products',
+            'text-white': currentUrl !== 'products'
+          }"
+          >商品列表</a
+        >
+      </li>
+      <li class="nav-item border-bottom border-gray-400">
+        <a
+          @click.prevent="clickNavLink('orders')"
+          class="nav-link py-4 fw-light"
+          :class="{
+            'text-primary': currentUrl === 'orders',
+            'text-white': currentUrl !== 'orders'
+          }"
+          >顧客訂單</a
+        >
+      </li>
+      <li class="nav-item border-bottom border-gray-400">
+        <a
+          @click.prevent="clickNavLink('coupons')"
+          class="nav-link py-4 fw-light"
+          :class="{
+            'text-primary': currentUrl === 'coupons',
+            'text-white': currentUrl !== 'coupons'
+          }"
+          >折價券</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          @click.prevent="clickNavLink('news')"
+          class="nav-link pt-4 fw-light"
+          :class="{
+            'text-primary': currentUrl === 'news',
+            'text-white': currentUrl !== 'news'
+          }"
+          >最新消息</a
+        >
+      </li>
+    </ul>
+  </div>
+
+  <ProductModal ref="productModal" :product="tempProduct" :isNew="isNew" />
+</template>

@@ -1,0 +1,147 @@
+// Utilities
+
+$custom-utilities: ();
+// stylelint-disable-next-line scss/dollar-variable-default
+$custom-utilities: map-merge(
+  (
+    "height": (
+      property: height,
+      class: h,
+      values: (
+        25: 25%,
+        50: 50%,
+        75: 75%,
+        100: 100%,
+        50vh: 50vh,
+        100vh: 100vh,
+        auto: auto
+      )
+    ),
+    "width": (
+      property: width,
+      class: w,
+      values: (
+        10: 10%,
+        15: 15%,
+        20: 20%,
+        25: 25%,
+        30: 30%,
+        50: 50%,
+        75: 75%,
+        80: 80%,
+        85: 85%,
+        100: 100%,
+        auto: auto
+      )
+    ),
+    "font-family": (
+      property: font-family,
+      class: font,
+      values: (
+        sans-en: $font-family-sans-en,
+        serif-en: $font-family-serif-en,
+        sans-tw: $font-family-sans-tw,
+        serif-tw: $font-family-serif-tw
+      )
+    ),
+    "font-size": (
+      rfs: false,
+      responsive: true,
+      property: font-size,
+      class: fs,
+      values: $font-sizes
+    ),
+    "letter-spacing": (
+      property: letter-spacing,
+      class: letter-spacing,
+      values: (
+        1: 1px,
+        2: 2px,
+        8: 8px,
+        18: 18px
+      )
+    ),
+    "writing-mode": (
+      property: writing-mode,
+      class: writing,
+      values: (
+        vertical: vertical-lr
+      )
+    ),
+    "z-index-minus": (
+      property: z-index,
+      class: z-minus,
+      values: (
+        1: -1
+      )
+    ),
+    "flex": (
+      responsive: true,
+      property: flex,
+      values: (
+        fill: 1 1 auto,
+        fit: 1 1 fit-content,
+        inherit: inherit
+      )
+    ),
+    "shadow": (
+      property: box-shadow,
+      class: shadow,
+      values: (
+        null: var(--#{$prefix}box-shadow),
+        sm: var(--#{$prefix}box-shadow-sm),
+        lg: var(--#{$prefix}box-shadow-lg),
+        none: none,
+        xs: 0px 0px 6px 0px rgba(0, 0, 0, 0.05)
+      )
+    ),
+    "mix-blend-mode": (
+      property: mix-blend-mode,
+      class: blend,
+      values: (
+        overlay: overlay
+      )
+    ),
+    "transition": (
+      property: transition,
+      class: transition,
+      values: (
+        2: all ease 0.2s,
+        3: all ease 0.3s,
+        5: all ease 0.5s
+      )
+    ),
+    "cursor": (
+      property: cursor,
+      class: cursor,
+      values: (
+        pointer: pointer
+      )
+    )
+  ),
+  $custom-utilities
+);
+
+$utilities: map-merge($utilities, $custom-utilities);
+
+.img {
+  &-full {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &-hover-scale {
+    transition: all ease 0.5s;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &-hover-scale-sm {
+    transition: all ease 0.5s;
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+}
