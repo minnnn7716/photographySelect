@@ -1,6 +1,13 @@
 <script>
 export default {
-  props: ['pageInfo'],
+  props: {
+    pageInfo: {
+      type: Object,
+      default() {
+        return {};
+      },
+    },
+  },
   methods: {
     clickPagination(action) {
       const currentPage = this.pageInfo.current_page;

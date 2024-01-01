@@ -19,7 +19,12 @@ export default {
     RatingScore,
     FavoriteBtn,
   },
-  props: ['id'],
+  props: {
+    id: {
+      type: String,
+      default: '',
+    },
+  },
   methods: {
     ...mapActions(productsStore, ['getSingleProduct']),
     ...mapActions(cartStore, ['addCart', 'buyNow']),

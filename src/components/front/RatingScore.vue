@@ -1,6 +1,15 @@
 <script>
 export default {
-  props: ['rate', 'rateNum'],
+  props: {
+    rate: {
+      type: String,
+      default: '0.0',
+    },
+    rateNum: {
+      type: Number,
+      default: 0,
+    },
+  },
   computed: {
     calcRate() {
       const ary = [];

@@ -9,7 +9,12 @@ export default {
       modal: '',
     };
   },
-  props: ['deleteData'],
+  props: {
+    deleteData: {
+      type: String,
+      default: '',
+    },
+  },
   mixins: [modalMixin],
   methods: {
     ...mapActions(cartStore, ['deleteAllCart']),

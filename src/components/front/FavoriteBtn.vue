@@ -10,7 +10,12 @@ export default {
       isLoading: false,
     };
   },
-  props: ['id'],
+  props: {
+    id: {
+      type: String,
+      default: '',
+    },
+  },
   watch: {
     id: 'judgeStatus',
     OuterFavoriteList: 'judgeStatus',

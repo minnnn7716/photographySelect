@@ -10,7 +10,12 @@ export default {
       discountPrice: 0,
     };
   },
-  props: ['id'],
+  props: {
+    id: {
+      type: String,
+      default: '',
+    },
+  },
   mixins: [orderMixin],
   methods: {
     ...mapActions(orderStore, ['getUserOrders', 'payOrder', 'dueDate', 'isCancel']),

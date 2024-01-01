@@ -10,7 +10,14 @@ export default {
     RatingScore,
     FavoriteBtn,
   },
-  props: ['product'],
+  props: {
+    product: {
+      type: Object,
+      default() {
+        return {};
+      },
+    },
+  },
   methods: {
     ...mapActions(cartStore, ['addCart']),
     ...mapActions(productsStore, ['routerPush']),

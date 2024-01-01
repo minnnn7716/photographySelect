@@ -2,7 +2,14 @@
 import { Toast } from 'bootstrap';
 
 export default {
-  props: ['msg'],
+  props: {
+    msg: {
+      type: Object,
+      default() {
+        return {};
+      },
+    },
+  },
   mounted() {
     const toastEl = this.$refs.toast;
     const toast = new Toast(toastEl, {

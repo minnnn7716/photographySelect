@@ -3,7 +3,12 @@ import { mapState, mapActions } from 'pinia';
 import newsStore from '@/stores/newsStore';
 
 export default {
-  props: ['id'],
+  props: {
+    id: {
+      type: String,
+      default: '',
+    },
+  },
   watch: {
     id: 'getSingleNewsAll',
   },
