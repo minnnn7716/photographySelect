@@ -37,9 +37,9 @@ export default {
       </div>
       <div class="row justify-content-center font-sans-tw">
         <div class="col-11 col-lg-6">
-          <v-form @submit="onSubmit" v-slot="{ errors }">
+          <VForm @submit="onSubmit" v-slot="{ errors }">
             <div class="form-floating position-relative mb-12" :class="{ error: errors['信箱'] }">
-              <v-field
+              <VField
                 v-model="email"
                 type="email"
                 name="信箱"
@@ -47,7 +47,7 @@ export default {
                 class="form-control bg-transparent rounded-0 pe-10"
                 placeholder="email"
                 rules="email|required"
-              ></v-field>
+              ></VField>
               <label for="email">電子信箱</label>
               <span class="error-bg position-absolute z-minus-1"></span>
               <button
@@ -56,12 +56,12 @@ export default {
               >
                 <img src="@/assets/images/icon-send.svg" alt="送出" />
               </button>
-              <error-message
+              <ErrorMessage
                 name="信箱"
                 class="error-text position-absolute fs-6 text-danger ps-3 mb-1"
-              ></error-message>
+              ></ErrorMessage>
             </div>
-          </v-form>
+          </VForm>
           <ul class="fs-normal-1 fw-300">
             <li>尚未付款的訂單請於訂購完成後三天內付款。</li>
             <li>如購買過程及收到商品有任何問題，歡迎聯繫我們， 我們會盡快回覆您。</li>

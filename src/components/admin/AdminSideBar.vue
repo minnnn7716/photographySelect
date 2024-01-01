@@ -59,25 +59,49 @@ export default {
           class="nav-item border-bottom border-gray-400 cursor-pointer"
           :class="{ 'text-black bg-primary-400': currentUrl === 'products' }"
         >
-          <a class="nav-link py-3" @click.prevent="clickNavLink('products')">商品列表</a>
+          <a
+            href="#"
+            class="nav-link py-3"
+            @click.prevent="clickNavLink('products')"
+          >
+            商品列表
+          </a>
         </li>
         <li
           class="nav-item border-bottom border-gray-400 cursor-pointer"
           :class="{ 'text-black bg-primary-400': currentUrl === 'orders' }"
         >
-          <a class="nav-link py-3" @click.prevent="clickNavLink('orders')">顧客訂單</a>
+          <a
+            href="#"
+            class="nav-link py-3"
+            @click.prevent="clickNavLink('orders')"
+            >
+              顧客訂單
+          </a>
         </li>
         <li
           class="nav-item border-bottom border-gray-400 cursor-pointer"
           :class="{ 'text-black bg-primary-400': currentUrl === 'coupons' }"
         >
-          <a class="nav-link py-3" @click.prevent="clickNavLink('coupons')">折價券</a>
+          <a
+            href="#"
+            class="nav-link py-3"
+            @click.prevent="clickNavLink('coupons')"
+          >
+            折價券
+          </a>
         </li>
         <li
           class="nav-item border-bottom border-gray-400 cursor-pointer"
           :class="{ 'text-black bg-primary-400': currentUrl === 'news' }"
         >
-          <a class="nav-link py-3" @click.prevent="clickNavLink('news')">最新消息</a>
+          <a
+            href="#"
+            class="nav-link py-3"
+            @click.prevent="clickNavLink('news')"
+          >
+            最新消息
+          </a>
         </li>
       </ul>
     </div>

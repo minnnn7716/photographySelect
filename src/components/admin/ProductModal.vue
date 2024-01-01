@@ -129,7 +129,7 @@ export default {
         </div>
         <div class="modal-body">
           <div class="container">
-            <v-form ref="updateProductForm" v-slot="{ errors }">
+            <VForm ref="updateProductForm" v-slot="{ errors }">
               <div class="row border-bottom border-gray-400 mb-6">
                 <div
                   class="col-12 col-lg-4 d-flex align-items-center mb-6 mb-lg-8 modalInput"
@@ -137,7 +137,7 @@ export default {
                 >
                   <label for="type" class="form-label me-4 mb-0">分類</label>
                   <div class="flex-fit">
-                    <v-field
+                    <VField
                       as="select"
                       id="type"
                       name="分類"
@@ -152,11 +152,11 @@ export default {
                       <option value="動物">動物</option>
                       <option value="景致">景致</option>
                       <option value="複合">複合</option>
-                    </v-field>
-                    <error-message
+                    </VField>
+                    <ErrorMessage
                       name="分類"
                       class="error-text position-absolute fs-normal-1 fs-lg-6 text-danger"
-                    ></error-message>
+                    ></ErrorMessage>
                   </div>
                 </div>
                 <div
@@ -165,18 +165,18 @@ export default {
                 >
                   <label for="title" class="form-label me-4 mb-0">標題</label>
                   <div class="flex-fit">
-                    <v-field
+                    <VField
                       type="text"
                       name="標題"
                       id="title"
                       rules="required"
                       v-model="tempProduct.title"
                       class="form-control py-2 rounded-3 bg-gray-300 text-black"
-                    ></v-field>
-                    <error-message
+                    ></VField>
+                    <ErrorMessage
                       name="標題"
                       class="error-text position-absolute fs-normal-1 fs-lg-6 text-danger mb-1"
-                    ></error-message>
+                    ></ErrorMessage>
                   </div>
                 </div>
                 <div
@@ -185,18 +185,18 @@ export default {
                 >
                   <label for="author" class="form-label me-4 mb-0">作者</label>
                   <div class="flex-fit">
-                    <v-field
+                    <VField
                       type="text"
                       name="作者"
                       id="author"
                       rules="required"
                       v-model="tempProduct.author"
                       class="form-control py-2 rounded-3 bg-gray-300"
-                    ></v-field>
-                    <error-message
+                    ></VField>
+                    <ErrorMessage
                       name="作者"
                       class="error-text position-absolute fs-normal-1 fs-lg-6 text-danger mb-1"
-                    ></error-message>
+                    ></ErrorMessage>
                   </div>
                 </div>
                 <div
@@ -205,7 +205,7 @@ export default {
                 >
                   <label for="originPrice" class="form-label me-4 mb-0">定價</label>
                   <div class="flex-fit">
-                    <v-field
+                    <VField
                       type="number"
                       min="0"
                       id="originPrice"
@@ -213,11 +213,11 @@ export default {
                       rules="required"
                       v-model="tempProduct.origin_price"
                       class="form-control py-2 rounded-3 bg-gray-300"
-                    ></v-field>
-                    <error-message
+                    ></VField>
+                    <ErrorMessage
                       name="定價"
                       class="error-text position-absolute fs-normal-1 fs-lg-6 text-danger mb-1"
-                    ></error-message>
+                    ></ErrorMessage>
                   </div>
                 </div>
                 <div
@@ -226,7 +226,7 @@ export default {
                 >
                   <label for="salePrice" class="form-label me-4 mb-0">售價</label>
                   <div class="flex-fit">
-                    <v-field
+                    <VField
                       type="number"
                       min="0"
                       id="salePrice"
@@ -234,11 +234,11 @@ export default {
                       rules="required"
                       v-model="tempProduct.price"
                       class="form-control py-2 rounded-3 bg-gray-300"
-                    ></v-field>
-                    <error-message
+                    ></VField>
+                    <ErrorMessage
                       name="售價"
                       class="error-text position-absolute fs-normal-1 fs-lg-6 text-danger mb-1"
-                    ></error-message>
+                    ></ErrorMessage>
                   </div>
                 </div>
                 <div
@@ -247,18 +247,18 @@ export default {
                 >
                   <label for="unit" class="form-label me-4 mb-0">單位</label>
                   <div class="flex-fit">
-                    <v-field
+                    <VField
                       type="text"
                       id="unit"
                       name="單位"
                       rules="required"
                       v-model="tempProduct.unit"
                       class="form-control flex-fit py-2 rounded-3 bg-gray-300"
-                    ></v-field>
-                    <error-message
+                    ></VField>
+                    <ErrorMessage
                       name="單位"
                       class="error-text position-absolute fs-normal-1 fs-lg-6 text-danger mb-1"
-                    ></error-message>
+                    ></ErrorMessage>
                   </div>
                 </div>
                 <div
@@ -267,7 +267,7 @@ export default {
                 >
                   <label for="totalNum" class="form-label me-4 mb-0">總數</label>
                   <div class="flex-fit">
-                    <v-field
+                    <VField
                       type="number"
                       min="1"
                       id="totalNum"
@@ -275,11 +275,11 @@ export default {
                       rules="required"
                       v-model="tempProduct.totalNum"
                       class="form-control flex-fit py-2 rounded-3 bg-gray-300"
-                    ></v-field>
-                    <error-message
+                    ></VField>
+                    <ErrorMessage
                       name="總數"
                       class="error-text position-absolute fs-normal-1 fs-lg-6 text-danger mb-1"
-                    ></error-message>
+                    ></ErrorMessage>
                   </div>
                 </div>
                 <div class="col-6 col-lg-2 d-flex align-items-center mb-6 mb-lg-8">
@@ -304,18 +304,18 @@ export default {
                 >
                   <label for="format" class="form-label me-4 mb-0">規格</label>
                   <div class="flex-fit">
-                    <v-field
+                    <VField
                       type="text"
                       name="規格"
                       id="format"
                       class="form-control flex-fit py-2 rounded-3 bg-gray-300"
                       v-model="tempProduct.format"
                       rules="required"
-                    ></v-field>
-                    <error-message
+                    ></VField>
+                    <ErrorMessage
                       name="規格"
                       class="error-text position-absolute fs-normal-1 fs-lg-6 text-danger mb-1"
-                    ></error-message>
+                    ></ErrorMessage>
                   </div>
                 </div>
                 <div
@@ -324,7 +324,7 @@ export default {
                 >
                   <label for="content" class="form-label me-4 mb-0">內文</label>
                   <div class="flex-fit">
-                    <v-field
+                    <VField
                       as="textarea"
                       type="text"
                       name="內文"
@@ -333,11 +333,11 @@ export default {
                       rows="5"
                       v-model="tempProduct.content"
                       rules="required"
-                    ></v-field>
-                    <error-message
+                    ></VField>
+                    <ErrorMessage
                       name="內文"
                       class="error-text position-absolute fs-normal-1 fs-lg-6 text-danger mb-1"
-                    ></error-message>
+                    ></ErrorMessage>
                   </div>
                 </div>
               </div>
@@ -418,7 +418,7 @@ export default {
                   </li>
                 </ul>
               </div>
-            </v-form>
+            </VForm>
           </div>
         </div>
         <div class="modal-footer bg-gray-200 justify-content-between">

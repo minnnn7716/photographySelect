@@ -1,4 +1,4 @@
-<script type="module">
+<script>
 import FavoriteOffcanvas from './FavoriteOffcanvas.vue';
 import CartOffcanvas from './CartOffcanvas.vue';
 import NavOffcanvas from './NavOffcanvas.vue';

@@ -2,7 +2,7 @@
 import { mapState, mapActions } from 'pinia';
 import productsStore from '@/stores/productsStore';
 import newsStore from '@/stores/newsStore';
-import ProductListItem from '@/components/front/PtoductListItem.vue';
+import ProductListItem from '@/components/front/ProductListItem.vue';
 import emitter from '@/methods/emitter';
 
 export default {

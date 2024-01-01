@@ -72,45 +72,49 @@ export default {
       </li>
       <li class="nav-item border-bottom border-gray-400">
         <a
-          @click.prevent="clickNavLink('products')"
+          href="#"
           class="nav-link py-4 fw-light"
           :class="{
             'text-primary': currentUrl === 'products',
             'text-white': currentUrl !== 'products'
           }"
+          @click.prevent="clickNavLink('products')"
           >商品列表</a
         >
       </li>
       <li class="nav-item border-bottom border-gray-400">
         <a
-          @click.prevent="clickNavLink('orders')"
+          href="#"
           class="nav-link py-4 fw-light"
           :class="{
             'text-primary': currentUrl === 'orders',
             'text-white': currentUrl !== 'orders'
           }"
+          @click.prevent="clickNavLink('orders')"
           >顧客訂單</a
         >
       </li>
       <li class="nav-item border-bottom border-gray-400">
         <a
-          @click.prevent="clickNavLink('coupons')"
+          href="#"
           class="nav-link py-4 fw-light"
           :class="{
             'text-primary': currentUrl === 'coupons',
             'text-white': currentUrl !== 'coupons'
           }"
+          @click.prevent="clickNavLink('coupons')"
           >折價券</a
         >
       </li>
       <li class="nav-item">
         <a
-          @click.prevent="clickNavLink('news')"
+          href="#"
           class="nav-link pt-4 fw-light"
           :class="{
             'text-primary': currentUrl === 'news',
             'text-white': currentUrl !== 'news'
           }"
+          @click.prevent="clickNavLink('news')"
           >最新消息</a
         >
       </li>

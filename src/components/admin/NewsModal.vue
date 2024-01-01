@@ -118,7 +118,7 @@ export default {
           <button type="button" class="btn-close" @click="closeModal"></button>
         </div>
         <div class="modal-body">
-          <v-form id="newsForm" ref="updateNewsForm" v-slot="{ errors }">
+          <VForm id="newsForm" ref="updateNewsForm" v-slot="{ errors }">
             <div class="border-bottom border-gray-400 mb-6">
               <div
                 class="d-flex align-items-center mb-8 modalInput"
@@ -126,18 +126,18 @@ export default {
               >
                 <label for="newsTitle" class="form-label me-4 mb-0">標題</label>
                 <div class="flex-fit">
-                  <v-field
+                  <VField
                     type="text"
                     id="newsTitle"
                     name="標題"
                     rules="required"
                     v-model="tempNews.title"
                     class="form-control flex-fit py-2 rounded-3 text-black bg-gray-300"
-                  ></v-field>
-                  <error-message
+                  ></VField>
+                  <ErrorMessage
                     name="標題"
                     class="error-text position-absolute fs-6 text-danger"
-                  ></error-message>
+                  ></ErrorMessage>
                 </div>
               </div>
               <div
@@ -146,7 +146,7 @@ export default {
               >
                 <label for="newsTag" class="form-label me-4 mb-0">標籤</label>
                 <div class="flex-fit">
-                  <v-field
+                  <VField
                     type="text"
                     id="newsTag"
                     name="標籤"
@@ -154,11 +154,11 @@ export default {
                     v-model="tempTag"
                     placeholder="標籤一, 標籤二, 標籤三"
                     class="form-control flex-fit py-2 rounded-3 text-black bg-gray-300"
-                  ></v-field>
-                  <error-message
+                  ></VField>
+                  <ErrorMessage
                     name="標籤"
                     class="error-text position-absolute fs-6 text-danger mb-1"
-                  ></error-message>
+                  ></ErrorMessage>
                 </div>
               </div>
               <div
@@ -167,18 +167,18 @@ export default {
               >
                 <label for="newsAuthor" class="form-label me-4 mb-0">作者</label>
                 <div class="flex-fit">
-                  <v-field
+                  <VField
                     type="text"
                     id="newsAuthor"
                     name="作者"
                     rules="required"
                     v-model="tempNews.author"
                     class="form-control flex-fit py-2 rounded-3 text-black bg-gray-300"
-                  ></v-field>
-                  <error-message
+                  ></VField>
+                  <ErrorMessage
                     name="作者"
                     class="error-text position-absolute fs-6 text-danger mb-1"
-                  ></error-message>
+                  ></ErrorMessage>
                 </div>
               </div>
               <div
@@ -187,7 +187,7 @@ export default {
               >
                 <label for="newsDescription" class="form-label me-4 mb-0">內文</label>
                 <div class="flex-fit">
-                  <v-field
+                  <VField
                     as="textarea"
                     type="text"
                     rows="5"
@@ -196,11 +196,11 @@ export default {
                     rules="required"
                     v-model="tempNews.description"
                     class="form-control flex-fit py-2 rounded-3 bg-gray-300"
-                  ></v-field>
-                  <error-message
+                  ></VField>
+                  <ErrorMessage
                     name="內文"
                     class="error-text position-absolute fs-6 text-danger mb-1"
-                  ></error-message>
+                  ></ErrorMessage>
                 </div>
               </div>
             </div>
@@ -267,7 +267,7 @@ export default {
                 </button>
               </div>
             </div>
-          </v-form>
+          </VForm>
         </div>
         <div class="modal-footer bg-gray-200 justify-content-between">
           <div class="form-check form-switch">

@@ -2,7 +2,7 @@
 import { mapState, mapActions } from 'pinia';
 import cartStore from '@/stores/cartStore';
 import productsStore from '@/stores/productsStore';
-import ProductListItem from '@/components/front/PtoductListItem.vue';
+import ProductListItem from '@/components/front/ProductListItem.vue';
 import Pagination from '@/components/PaginationComponent.vue';
 
 export default {

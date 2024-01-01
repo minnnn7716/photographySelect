@@ -24,7 +24,7 @@ export default {
     <div v-if="singleNews.id !== undefined">
       <div class="row gx-lg-20 mb-14">
         <div class="col-12 col-lg-6 mb-4 mb-lg-0 d-flex flex-column">
-          <div class="overflow-hidden newsview-img flex-grow-1">
+          <div class="overflow-hidden newsView-img flex-grow-1">
             <img class="img-full" :src="singleNews.image" :alt="singleNews.title" />
           </div>
         </div>
@@ -43,7 +43,7 @@ export default {
           <a
             href="#"
             @click.prevent="routerPush(otherNewsId.prev)"
-            class="newsview-link-prev d-flex align-items-center link-gray-800 cursor-pointer"
+            class="newsView-link-prev d-flex align-items-center link-gray-800 cursor-pointer"
             :class="{ 'pe-none opacity-50': !otherNewsId.prev }"
           >
             <img src="@/assets/images/icon-arrow-long-left.svg" alt="prev" />
@@ -53,7 +53,7 @@ export default {
         <li>
           <RouterLink
             to="/news"
-            class="newsview-link-back font-sans-tw link-gray-800 pb-1 border-gray-800 border-bottom"
+            class="newsView-link-back font-sans-tw link-gray-800 pb-1 border-gray-800 border-bottom"
           >
             返回列表
           </RouterLink>
@@ -62,7 +62,7 @@ export default {
           <a
             href="#"
             @click.prevent="routerPush(otherNewsId.next)"
-            class="newsview-link-next d-flex align-items-center
+            class="newsView-link-next d-flex align-items-center
             flex-row-reverse link-gray-800 cursor-pointer"
             :class="{ 'pe-none opacity-50': !otherNewsId.next }"
           >
@@ -79,7 +79,7 @@ export default {
 <style lang="scss">
 @import '@/assets/scss/vendors/bootstrap';
 
-.newsview {
+.newsView {
   &-img {
     height: 300px;
 

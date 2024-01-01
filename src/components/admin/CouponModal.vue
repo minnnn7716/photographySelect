@@ -82,7 +82,7 @@ export default {
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body">
-          <v-form
+          <VForm
             @submit="confirmCoupon"
             id="couponForm"
             v-slot="{ errors }"
@@ -94,18 +94,18 @@ export default {
             >
               <label for="title" class="form-label me-4 mb-0 w-20">活動名稱</label>
               <div class="flex-fit">
-                <v-field
+                <VField
                   type="text"
                   id="title"
                   name="活動名稱"
                   rules="required"
                   v-model="tempCoupon.title"
                   class="form-control flex-fit py-2 rounded-3 text-black bg-gray-300"
-                ></v-field>
-                <error-message
+                ></VField>
+                <ErrorMessage
                   name="活動名稱"
                   class="error-text position-absolute fs-6 text-danger mb-1"
-                ></error-message>
+                ></ErrorMessage>
               </div>
             </div>
             <div
@@ -114,18 +114,18 @@ export default {
             >
               <label for="code" class="form-label me-4 mb-0 w-20">優惠碼</label>
               <div class="flex-fit">
-                <v-field
+                <VField
                   type="text"
                   id="code"
                   name="優惠碼"
                   rules="required"
                   v-model="tempCoupon.code"
                   class="form-control flex-fit py-2 rounded-3 text-black bg-gray-300"
-                ></v-field>
-                <error-message
+                ></VField>
+                <ErrorMessage
                   name="優惠碼"
                   class="error-text position-absolute fs-6 text-danger mb-1"
-                ></error-message>
+                ></ErrorMessage>
               </div>
             </div>
             <div
@@ -135,7 +135,7 @@ export default {
               <label for="discount" class="form-label me-4 mb-0 w-20">折扣</label>
               <div class="flex-fit">
                 <div class="d-flex align-items-center flex-fit">
-                  <v-field
+                  <VField
                     type="number"
                     id="discount"
                     name="折扣"
@@ -143,13 +143,13 @@ export default {
                     v-model.number="tempCoupon.percent"
                     placeholder="請輸入 0 - 100 之間的數字"
                     class="form-control py-2 rounded-3 text-black bg-gray-300"
-                  ></v-field>
+                  ></VField>
                   <p class="ms-4">%</p>
                 </div>
-                <error-message
+                <ErrorMessage
                   name="折扣"
                   class="error-text position-absolute fs-6 text-danger mb-1"
-                ></error-message>
+                ></ErrorMessage>
               </div>
             </div>
             <div
@@ -158,7 +158,7 @@ export default {
             >
               <label for="startDate" class="form-label me-4 mb-0 w-20">起始日</label>
               <div class="flex-fit">
-                <v-field
+                <VField
                   type="date"
                   id="startDate"
                   name="起始日"
@@ -166,11 +166,11 @@ export default {
                   v-model="tempStartDate"
                   @change="getDate($event.target.value, 'tempStartDate')"
                   class="form-control flex-fit py-2 rounded-3 text-black bg-gray-300"
-                ></v-field>
-                <error-message
+                ></VField>
+                <ErrorMessage
                   name="起始日"
                   class="error-text position-absolute fs-6 text-danger mb-1"
-                ></error-message>
+                ></ErrorMessage>
               </div>
             </div>
             <div
@@ -179,21 +179,21 @@ export default {
             >
               <label for="dueDate" class="form-label me-4 mb-0 w-20">到期日</label>
               <div class="flex-fit">
-                <v-field
+                <VField
                   type="date"
                   id="dueDate"
                   name="到期日"
                   rules="required"
                   v-model="tempDueDate"
                   class="form-control flex-fit py-2 rounded-3 text-black bg-gray-300"
-                ></v-field>
-                <error-message
+                ></VField>
+                <ErrorMessage
                   name="到期日"
                   class="error-text position-absolute fs-6 text-danger mb-1"
-                ></error-message>
+                ></ErrorMessage>
               </div>
             </div>
-          </v-form>
+          </VForm>
         </div>
         <div class="modal-footer bg-gray-200 justify-content-between">
           <div class="form-check form-switch">

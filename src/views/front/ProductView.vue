@@ -30,14 +30,14 @@ export default {
       const viewportHeight = window.innerHeight;
       const toTop = 107;
       const wholeDistance = wrapHeight + toTop - viewportHeight;
-      const contentTotop = contentHeight + toTop;
+      const contentToTop = contentHeight + toTop;
       const movePoint = contentHeight + toTop - viewportHeight;
 
       if (scrollTop <= 0) {
         this.$refs.mainContent.style.top = `${toTop}px`;
       }
 
-      if (contentTotop > viewportHeight) {
+      if (contentToTop > viewportHeight) {
         if (scrollTop >= movePoint && scrollTop <= wholeDistance) {
           this.$refs.mainContent.style.top = `${scrollTop - movePoint - 32}px`;
         } else if (scrollTop > wholeDistance) {
@@ -74,11 +74,11 @@ export default {
 
 <template>
   <div class="container pt-4 pt-lg-8">
-    <div class="productview-img d-lg-none mb-4">
+    <div class="productView-img d-lg-none mb-4">
       <img class="img-full" :src="singleProduct.imageUrl" :alt="singleProduct.title" />
     </div>
     <div class="row flex-column-reverse flex-lg-row gx-lg-10 gy-4">
-      <div class="col-12 col-lg-5 productview-img" ref="side">
+      <div class="col-12 col-lg-5 productView-img" ref="side">
         <img
           v-for="(img, index) in singleProduct.imagesUrl"
           :key="`圖片 ${index}`"
@@ -91,12 +91,12 @@ export default {
           :alt="`${singleProduct.title} 內頁預覽`"
         />
       </div>
-      <div class="col-12 col-lg-7 font-sans-tw productview-main" ref="main">
-        <div class="px-0 px-lg-5 transition-5 productview-main-content" ref="mainContent">
+      <div class="col-12 col-lg-7 font-sans-tw productView-main" ref="main">
+        <div class="px-0 px-lg-5 transition-5 productView-main-content" ref="mainContent">
           <div class="d-flex justify-content-between mb-6 mb-lg-10">
             <div class="d-flex flex-fit flex-column flex-lg-row justify-content-between">
               <div>
-                <h2 class="productview-title lh-base fs-4 fs-lg-2 mb-2 mb-lg-4">
+                <h2 class="productView-title lh-base fs-4 fs-lg-2 mb-2 mb-lg-4">
                   {{ `${singleProduct.title}｜${singleProduct.category}攝影` }}
                 </h2>
                 <h3 class="fw-light fs-6 fs-lg-5 mb-2">
@@ -162,7 +162,7 @@ export default {
           </div>
 
           <div>
-            <h4 class="fw-noraml mb-2 fs-5">常見問題</h4>
+            <h4 class="fw-normal mb-2 fs-5">常見問題</h4>
             <div class="accordion accordion-flush" id="accordionQA">
               <div class="accordion-item border-bottom border-gray-900">
                 <h2 class="accordion-header">
@@ -242,7 +242,7 @@ export default {
 <style lang="scss">
 @import '@/assets/scss/vendors/bootstrap';
 
-.productview {
+.productView {
   &-title {
     font-weight: normal;
 

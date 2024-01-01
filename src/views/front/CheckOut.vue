@@ -135,7 +135,7 @@ export default {
           </li>
         </ul>
         <div class="d-none d-lg-block">
-          <a v-if="step <= 2" @click.prevent="prevStep()" class="d btn-custom-light cursor-pointer"
+          <a v-if="step <= 2" @click.prevent="prevStep" class="d btn-custom-light cursor-pointer"
             >上一步</a
           >
         </div>
@@ -143,8 +143,8 @@ export default {
       <div class="row font-sans-tw gx-md-4 gx-lg-10">
         <!-- 填寫資料 -->
         <div class="col-12 col-md-8 mb-6 mb-md-0" v-if="step === 1">
-          <v-form
-            @submit="sendOrderData()"
+          <VForm
+            @submit="sendOrderData"
             id="cartForm"
             class="row gx-lg-10 gy-6 gy-lg-10"
             v-slot="{ errors }"
@@ -154,18 +154,18 @@ export default {
                 姓名<span class="font-sans-tw fs-3 text-danger">*</span>
                 </label>
               <div class="flex-fit normalInput" :class="{ error: errors['姓名'] }">
-                <v-field
+                <VField
                   type="text"
                   id="name"
                   name="姓名"
                   rules="required"
                   class="form-control py-2 py-lg-3 rounded-3 shadow-xs"
                   v-model="orderData.user.name"
-                ></v-field>
-                <error-message
+                ></VField>
+                <ErrorMessage
                   name="姓名"
                   class="error-text position-absolute fs-normal-1 fs-lg-6 text-danger mt-lg-1"
-                ></error-message>
+                ></ErrorMessage>
               </div>
             </div>
             <div class="col-12 col-lg-6 d-flex align-items-center">
@@ -173,7 +173,7 @@ export default {
                 電話<span class="font-sans-tw fs-3 text-danger">*</span>
               </label>
               <div class="flex-fit normalInput" :class="{ error: errors['電話'] }">
-                <v-field
+                <VField
                   type="tel"
                   id="tel"
                   name="電話"
@@ -181,11 +181,11 @@ export default {
                   class="form-control flex-fit py-2 py-lg-3 rounded-3 shadow-xs"
                   v-model="orderData.user.tel"
                   placeholder="不含 - 符號的手機或室話"
-                ></v-field>
-                <error-message
+                ></VField>
+                <ErrorMessage
                   name="電話"
                   class="error-text position-absolute fs-normal-1 fs-lg-6 text-danger mt-lg-1"
-                ></error-message>
+                ></ErrorMessage>
               </div>
             </div>
             <div class="col-12 d-flex align-items-center">
@@ -193,18 +193,18 @@ export default {
                 信箱<span class="font-sans-tw fs-3 text-danger">*</span>
               </label>
               <div class="flex-fit normalInput" :class="{ error: errors['信箱'] }">
-                <v-field
+                <VField
                   type="email"
                   id="email"
                   name="信箱"
                   rules="email|required"
                   class="form-control flex-fit py-2 py-lg-3 rounded-3 shadow-xs"
                   v-model="orderData.user.email"
-                ></v-field>
-                <error-message
+                ></VField>
+                <ErrorMessage
                   name="信箱"
                   class="error-text position-absolute fs-normal-1 fs-lg-6 text-danger mt-lg-1"
-                ></error-message>
+                ></ErrorMessage>
               </div>
             </div>
             <fieldset class="col-12 d-flex align-items-center">
@@ -214,7 +214,7 @@ export default {
               <div class="normalInput" :class="{ error: errors['取貨方式'] }">
                 <div class="d-flex">
                   <div class="form-check form-radio p-0 me-2 me-md-3 me-lg-4">
-                    <v-field
+                    <VField
                       class="form-check-input d-none"
                       type="radio"
                       name="取貨方式"
@@ -222,7 +222,7 @@ export default {
                       id="本店自取"
                       value="本店自取"
                       v-model="orderData.user.takeout"
-                    ></v-field>
+                    ></VField>
                     <label
                       class="form-check-label py-2 py-lg-3
                       px-3 px-md-4 px-lg-6 rounded-pill shadow-xs"
@@ -232,7 +232,7 @@ export default {
                     </label>
                   </div>
                   <div class="form-check form-radio p-0 me-2 me-md-3 me-lg-4">
-                    <v-field
+                    <VField
                       class="form-check-input d-none"
                       type="radio"
                       name="取貨方式"
@@ -240,7 +240,7 @@ export default {
                       id="宅配"
                       value="宅配"
                       v-model="orderData.user.takeout"
-                    ></v-field>
+                    ></VField>
                     <label
                       class="form-check-label py-2 py-lg-3
                       px-3 px-md-4 px-lg-6 rounded-pill shadow-xs"
@@ -250,7 +250,7 @@ export default {
                     </label>
                   </div>
                   <div class="form-check form-radio p-0">
-                    <v-field
+                    <VField
                       class="form-check-input d-none"
                       type="radio"
                       name="取貨方式"
@@ -258,7 +258,7 @@ export default {
                       id="超商取貨"
                       value="超商取貨"
                       v-model="orderData.user.takeout"
-                    ></v-field>
+                    ></VField>
                     <label
                       class="form-check-label py-2 py-lg-3
                       px-3 px-md-4 px-lg-6 rounded-pill shadow-xs"
@@ -268,27 +268,27 @@ export default {
                     </label>
                   </div>
                 </div>
-                <error-message
+                <ErrorMessage
                   name="取貨方式"
                   class="error-text position-absolute fs-normal-1 fs-lg-6 text-danger mt-lg-1"
-                ></error-message>
+                ></ErrorMessage>
               </div>
             </fieldset>
             <div class="col-12 d-flex align-items-center" v-if="orderData.user.takeout === '宅配'">
               <label for="address" class="form-label me-4 mb-0 fs-6 fs-md-5">地址</label>
               <div class="flex-fit normalInput" :class="{ error: errors['地址'] }">
-                <v-field
+                <VField
                   type="text"
                   id="address"
                   name="地址"
                   class="form-control flex-fit py-2 py-lg-3 rounded-3 shadow-xs"
                   rules="required"
                   v-model="orderData.user.address"
-                ></v-field>
-                <error-message
+                ></VField>
+                <ErrorMessage
                   name="地址"
                   class="error-text position-absolute fs-normal-1 fs-lg-6 text-danger mt-lg-1"
-                ></error-message>
+                ></ErrorMessage>
               </div>
             </div>
             <fieldset class="col-12 d-flex align-items-center">
@@ -298,7 +298,7 @@ export default {
               <div class="normalInput" :class="{ error: errors['付款方式'] }">
                 <div class="d-flex">
                   <div class="form-check form-radio p-0 me-2 me-md-3 me-lg-4">
-                    <v-field
+                    <VField
                       class="form-check-input d-none"
                       type="radio"
                       name="付款方式"
@@ -306,7 +306,7 @@ export default {
                       id="ATM 匯款"
                       value="ATM 匯款"
                       v-model="orderData.user.pay"
-                    ></v-field>
+                    ></VField>
                     <label
                       class="form-check-label py-2 py-lg-3
                       px-2 px-md-4 px-lg-6 rounded-pill shadow-xs"
@@ -316,7 +316,7 @@ export default {
                     </label>
                   </div>
                   <div class="form-check form-radio p-0 me-2 me-md-3 me-lg-4">
-                    <v-field
+                    <VField
                       class="form-check-input d-none"
                       type="radio"
                       name="付款方式"
@@ -324,7 +324,7 @@ export default {
                       id="信用卡"
                       value="信用卡"
                       v-model="orderData.user.pay"
-                    ></v-field>
+                    ></VField>
                     <label
                       class="form-check-label py-2 py-lg-3
                       px-3 px-md-4 px-lg-6 rounded-pill shadow-xs"
@@ -334,7 +334,7 @@ export default {
                     </label>
                   </div>
                   <div class="form-check form-radio p-0">
-                    <v-field
+                    <VField
                       class="form-check-input d-none"
                       type="radio"
                       name="付款方式"
@@ -342,7 +342,7 @@ export default {
                       id="貨到付款"
                       value="貨到付款"
                       v-model="orderData.user.pay"
-                    ></v-field>
+                    ></VField>
                     <label
                       class="form-check-label py-2 py-lg-3
                       px-2 px-md-4 px-lg-6 rounded-pill shadow-xs"
@@ -352,10 +352,10 @@ export default {
                     </label>
                   </div>
                 </div>
-                <error-message
+                <ErrorMessage
                   name="付款方式"
                   class="error-text position-absolute fs-normal-1 fs-lg-6 text-danger mt-lg-1"
-                ></error-message>
+                ></ErrorMessage>
               </div>
             </fieldset>
             <fieldset class="col-12 d-flex align-items-center mb-2">
@@ -365,7 +365,7 @@ export default {
               <div class="normalInput flex-fit" :class="{ error: errors['發票類型'] }">
                 <div class="d-flex flex-fit">
                   <div class="form-check form-radio p-0 me-2 me-md-3 me-lg-4">
-                    <v-field
+                    <VField
                       class="form-check-input d-none"
                       type="radio"
                       name="發票類型"
@@ -373,7 +373,7 @@ export default {
                       value="紙本發票"
                       rules="required"
                       v-model="orderData.user.bill"
-                    ></v-field>
+                    ></VField>
                     <label
                       class="form-check-label py-2 py-lg-3
                       px-3 px-md-4 px-lg-6 rounded-pill shadow-xs"
@@ -383,7 +383,7 @@ export default {
                     </label>
                   </div>
                   <div class="form-check form-radio p-0 me-2 me-md-3 me-lg-4">
-                    <v-field
+                    <VField
                       class="form-check-input d-none"
                       type="radio"
                       name="發票類型"
@@ -391,7 +391,7 @@ export default {
                       value="電子載具"
                       rules="required"
                       v-model="orderData.user.bill"
-                    ></v-field>
+                    ></VField>
                     <label
                       class="form-check-label py-2 py-lg-3
                       px-3 px-md-4 px-lg-6 rounded-pill shadow-xs"
@@ -404,41 +404,41 @@ export default {
                   class="flex-fit normalInput d-none d-lg-block"
                   :class="{ error: errors['電子載具'] }">
                     <div v-if="orderData.user.bill === '電子載具'">
-                      <v-field
+                      <VField
                         type="text"
                         name="電子載具"
                         class="form-control w-100 py-2 py-lg-3 rounded-3 shadow-xs"
                         placeholder="請輸入  '/'  開頭的載具號碼"
                         rules="required"
                         v-model="orderData.user.billNum"
-                      ></v-field>
+                      ></VField>
                     </div>
-                    <error-message
+                    <ErrorMessage
                       name="電子載具"
                       class="error-text position-absolute fs-normal-1 fs-lg-6 text-danger mt-lg-1"
-                    ></error-message>
+                    ></ErrorMessage>
                   </div>
                 </div>
                 <div class="normalInput d-lg-none" :class="{ error: errors['電子載具'] }">
                     <div class="mt-2" v-if="orderData.user.bill === '電子載具'">
-                      <v-field
+                      <VField
                         type="text"
                         name="電子載具"
                         class="form-control w-100 py-2 py-lg-3 rounded-3 shadow-xs"
                         placeholder="請輸入  '/'  開頭的載具號碼"
                         rules="required"
                         v-model="orderData.user.billNum"
-                      ></v-field>
+                      ></VField>
                     </div>
-                    <error-message
+                    <ErrorMessage
                       name="電子載具"
                       class="error-text position-absolute fs-normal-1 fs-lg-6 text-danger mt-lg-1"
-                    ></error-message>
+                    ></ErrorMessage>
                   </div>
-                <error-message
+                <ErrorMessage
                   name="發票類型"
                   class="error-text position-absolute fs-normal-1 fs-lg-6 text-danger mt-lg-1"
-                ></error-message>
+                ></ErrorMessage>
               </div>
             </fieldset>
             <div class="d-flex">
@@ -450,7 +450,7 @@ export default {
                 v-model="orderData.message"
               ></textarea>
             </div>
-          </v-form>
+          </VForm>
         </div>
 
         <!-- 確認訂單 -->

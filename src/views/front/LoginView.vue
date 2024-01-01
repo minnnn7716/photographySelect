@@ -60,9 +60,9 @@ export default {
       </div>
       <div class="row justify-content-center font-sans-tw">
         <div class="col-11 col-lg-3">
-          <v-form @submit="login" id="login" class="mb-10" v-slot="{ errors }">
+          <VForm @submit="login" id="login" class="mb-10" v-slot="{ errors }">
             <div class="form-floating position-relative" :class="{ error: errors['email'] }">
-              <v-field
+              <VField
                 type="email"
                 name="email"
                 id="email"
@@ -70,13 +70,13 @@ export default {
                 placeholder="name@example.com"
                 v-model="user.username"
                 rules="email|required"
-              ></v-field>
+              ></VField>
               <label for="email">信箱</label>
               <span class="error-bg position-absolute z-minus-1"></span>
-              <error-message
+              <ErrorMessage
                 name="email"
                 class="error-text position-absolute fs-6 text-danger ps-3 mb-1"
-              ></error-message>
+              ></ErrorMessage>
             </div>
             <div class="form-floating position-relative" :class="{ error: errors['密碼'] }">
               <button
@@ -91,7 +91,7 @@ export default {
                 />
                 <img v-else src="@/assets/images/icon-eye-open.svg" alt="觀看密碼" />
               </button>
-              <v-field
+              <VField
                 :type="passwordType"
                 id="password"
                 name="密碼"
@@ -99,15 +99,15 @@ export default {
                 placeholder="password"
                 v-model="user.password"
                 rules="required|min:6"
-              ></v-field>
+              ></VField>
               <label for="password">密碼</label>
               <span class="error-bg position-absolute z-minus-1"></span>
-              <error-message
+              <ErrorMessage
                 name="密碼"
                 class="error-text position-absolute fs-6 text-danger ps-3 mb-1"
-              ></error-message>
+              ></ErrorMessage>
             </div>
-          </v-form>
+          </VForm>
           <div class="row justify-content-center">
             <div class="col-8">
               <button form="login" type="submit" class="w-100 btn-custom-light me-3">送出</button>
