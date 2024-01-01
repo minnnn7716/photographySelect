@@ -332,22 +332,24 @@ export default {
                 alt="decoration-halo"
               />
             </div>
-            <p class="text-center lh-lg fs-lg-normal-1 fs-xxl-6">
-              經歷無數個為影像所感動、驚喜、波動的時刻，<br class="d-none d-lg-block" />
-              一紙影像不如手感上如此輕薄，<br class="d-none d-lg-block" />
-              他所帶來的觸動遠比海洋寬闊，與森林一般深層，<br class="d-none d-lg-block" />
-              令人無法抗拒，<br class="d-none d-lg-block" />
-              躍然於眼前，直達心弦的悸動。<br />
-              <br />
-              我們希望能為你汲取這些道不盡的浮光掠影，<br class="d-none d-lg-block" />
-              將之一一揀選，提供不同形式樣態的作品，<br class="d-none d-lg-block" />
-              期望你能在集攝找到屬於你的時光。<br />
-              <br />
-              <span class="d-none d-lg-block">
+            <div class="text-center lh-lg fs-lg-normal-1 fs-xxl-6">
+              <p class="mb-8">
+                經歷無數個為影像所感動、驚喜、波動的時刻，<br class="d-none d-lg-block" />
+                一紙影像不如手感上如此輕薄，<br class="d-none d-lg-block" />
+                他所帶來的觸動遠比海洋寬闊，與森林一般深層，<br class="d-none d-lg-block" />
+                令人無法抗拒，<br class="d-none d-lg-block" />
+                躍然於眼前，直達心弦的悸動。
+              </p>
+              <p class="mb-8">
+                我們希望能為你汲取這些道不盡的浮光掠影，<br class="d-none d-lg-block" />
+                將之一一揀選，提供不同形式樣態的作品，<br class="d-none d-lg-block" />
+                期望你能在集攝找到屬於你的時光。<br />
+              </p>
+              <p class="d-none d-lg-block">
                 我們也很歡迎你到店面，除去螢幕的隔閡，<br />
                 親自感受這些攝影集想和你訴說的話語。
-              </span>
-            </p>
+              </p>
+            </div>
           </div>
           <div
             class="col-lg-4 pe-0 mb-minus-14 d-none d-lg-flex
