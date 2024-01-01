@@ -11,7 +11,6 @@ import eslintPlugin from 'vite-plugin-eslint';
 export default defineConfig({
   plugins: [
     vue(),
-    // eslint-disable-next-line no-undef
     eslintPlugin({
       include: ['src/**/*.js', 'src/**/*.vue', 'src/*.js', 'src/*.vue'],
     }),

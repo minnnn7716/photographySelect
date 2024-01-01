@@ -47,8 +47,6 @@ export default {
     },
     addImage() {
       if (this.tempUrlImage === '' && this.tempLocalImage === '') {
-        // eslint-disable-next-line no-alert
-        alert('請提供圖片');
         return;
       }
 

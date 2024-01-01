@@ -9,8 +9,7 @@ import {
   Field, Form, ErrorMessage, defineRule, configure,
 } from 'vee-validate';
 import {
-  // eslint-disable-next-line camelcase
-  required, email, min, min_value, max_value, length,
+  required, email, min, min_value as minValue, max_value as maxValue, length,
 } from '@vee-validate/rules';
 import { localize, setLocale } from '@vee-validate/i18n';
 import zhTW from '@vee-validate/i18n/dist/locale/zh_TW.json';
@@ -26,8 +25,8 @@ const meta = createMetaManager();
 defineRule('required', required);
 defineRule('email', email);
 defineRule('min', min);
-defineRule('min_value', min_value);
-defineRule('max_value', max_value);
+defineRule('minValue', minValue);
+defineRule('maxValue', maxValue);
 defineRule('length', length);
 
 configure({

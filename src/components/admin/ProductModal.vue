@@ -13,6 +13,7 @@ export default {
       tempLocalImage: '',
       hasImageFile: false,
       hasImagesUrl: null,
+      overImage: false,
     };
   },
   components: {
@@ -54,8 +55,9 @@ export default {
       }
 
       if (this.tempProduct.imagesUrl.length >= 5) {
-        // eslint-disable-next-line no-alert
-        alert('最多五張圖片');
+        this.overImage = true;
+
+        setTimeout(() => { this.overImage = false; }, 2000);
         return;
       }
 
@@ -352,7 +354,9 @@ export default {
                     >最多 5 張圖</span
                   >
                 </div>
-                <div class="mb-6 modalInput" :class="{ error: hasImagesUrl === false }">
+                <div
+                  class="mb-8 modalInput"
+                  :class="{ error: hasImagesUrl === false || overImage }">
                   <div
                     class="d-flex flex-column flex-lg-row
                     align-items-stretch align-items-lg-center mb-1"
@@ -387,7 +391,8 @@ export default {
                     </button>
                   </div>
                   <p class="error-text position-absolute fs-normal-1 fs-lg-6 text-danger mb-1">
-                    最少新增一張圖片
+                    <span v-if="hasImagesUrl === false">圖片 為必填</span>
+                    <span v-else>最多五張圖片</span>
                   </p>
                 </div>
                 <ul class="list-unstyled d-flex">

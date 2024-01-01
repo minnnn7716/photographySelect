@@ -139,7 +139,7 @@ export default {
                     type="number"
                     id="discount"
                     name="折扣"
-                    rules="required|min_value:0|max_value:100"
+                    rules="required|minValue:0|maxValue:100"
                     v-model.number="tempCoupon.percent"
                     placeholder="請輸入 0 - 100 之間的數字"
                     class="form-control py-2 rounded-3 text-black bg-gray-300"

@@ -29,8 +29,7 @@ export default {
     },
   },
   mounted() {
-    // eslint-disable-next-line no-underscore-dangle
-    const url = this.$router.currentRoute._value.path.split('/')[2];
+    const url = this.$route.path.split('/')[2];
     this.currentUrl = url;
   },
 };
