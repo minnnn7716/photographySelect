@@ -1,14 +1,13 @@
 <script>
-import { mapActions } from 'pinia';
+import { mapState, mapActions } from 'pinia';
+import favoriteStore from '@/stores/favoriteStore';
 import toastStore from '@/stores/toastStore';
 
 export default {
   data() {
     return {
-      favoriteList: [],
-      isFavorite: false,
-      OuterFavoriteList: [],
       isLoading: false,
+      isFavorite: false,
     };
   },
   props: {
@@ -19,17 +18,12 @@ export default {
   },
   watch: {
     id: 'judgeStatus',
-    OuterFavoriteList: 'judgeStatus',
+    favoriteList: 'judgeStatus',
   },
   methods: {
+    ...mapActions(favoriteStore, ['getFavoriteList']),
     ...mapActions(toastStore, ['pushMsg']),
-    getFavoriteList() {
-      const list = localStorage.getItem('favoriteList');
-      this.favoriteList = list === null ? [] : JSON.parse(list);
-    },
     judgeStatus() {
-      this.getFavoriteList();
-
       if (this.favoriteList.indexOf(this.id) === -1) {
         this.isFavorite = false;
       } else {
@@ -60,13 +54,13 @@ export default {
       this.judgeStatus();
     },
   },
-  created() {
-    if (this.id) this.judgeStatus(this.id);
+  computed: {
+    ...mapState(favoriteStore, ['favoriteList']),
   },
-  mounted() {
-    this.$emitter.on('push-favorite', (obj) => {
-      this.OuterFavoriteList = obj;
-    });
+  created() {
+    if (this.id) {
+      this.judgeStatus();
+    }
   },
 };
 </script>

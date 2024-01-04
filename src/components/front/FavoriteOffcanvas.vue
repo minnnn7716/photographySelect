@@ -1,10 +1,9 @@
 <script>
-
 import { mapState, mapActions } from 'pinia';
-import emitter from '@/methods/emitter';
 import productsStore from '@/stores/productsStore';
 import cartStore from '@/stores/cartStore';
 import toastStore from '@/stores/toastStore';
+import favoriteStore from '@/stores/favoriteStore';
 import offcanvasMixin from '@/mixins/offcanvasMixin';
 import FavoriteBtn from './FavoriteBtn.vue';
 import DeleteModal from './DeleteModal.vue';
@@ -13,8 +12,6 @@ export default {
   data() {
     return {
       offcanvas: '',
-      favoriteList: [],
-      favoriteProducts: [],
     };
   },
   components: {
@@ -24,42 +21,17 @@ export default {
   mixins: [offcanvasMixin],
   watch: {
     products: 'getFavoriteList',
+    favoriteList() {
+      this.filterProducts(this.products);
+    },
   },
   methods: {
     ...mapActions(cartStore, ['addCart']),
     ...mapActions(toastStore, ['pushMsg']),
-    getFavoriteList() {
-      const list = localStorage.getItem('favoriteList');
-      this.favoriteList = list === null ? [] : JSON.parse(list);
-      this.filterProducts();
-      emitter.emit('push-favorite', this.favoriteList);
-    },
-    filterProducts() {
-      const ary = [];
-
-      if (this.favoriteList.length) {
-        for (let i = 0; i < this.products.length; i += 1) {
-          for (let e = 0; e < this.favoriteList.length; e += 1) {
-            if (this.products[i].id === this.favoriteList[e]) ary.push(this.products[i]);
-          }
-        }
-      }
-
-      this.favoriteProducts = ary;
-    },
+    ...mapActions(favoriteStore, ['getFavoriteList', 'filterProducts', 'deleteAllFavorite']),
     showFavoriteOffcanvas() {
       this.getFavoriteList();
       this.offcanvas.show();
-    },
-    deleteAllFavorite() {
-      this.favoriteList = [];
-      this.favoriteProducts = [];
-      localStorage.setItem('favoriteList', JSON.stringify(this.favoriteList));
-      emitter.emit('push-favorite', this.favoriteList);
-      this.pushMsg({
-        style: 'success',
-        title: '成功移除所有喜愛清單',
-      });
     },
     availableNum(product) {
       return product.totalNum - product.soldNum || 0;
@@ -67,6 +39,7 @@ export default {
   },
   computed: {
     ...mapState(productsStore, ['products']),
+    ...mapState(favoriteStore, ['favoriteList', 'favoriteProducts']),
   },
 };
 </script>
