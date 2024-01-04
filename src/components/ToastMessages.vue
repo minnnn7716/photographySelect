@@ -1,20 +1,14 @@
 <script>
+import { mapState } from 'pinia';
+import toastStore from '@/stores/toastStore';
 import ToastItem from './ToastItem.vue';
 
 export default {
-  data() {
-    return {
-      message: [],
-    };
-  },
   components: {
     ToastItem,
   },
-  mounted() {
-    this.$emitter.on('push-message', (message) => {
-      const { style, title, content } = message;
-      this.message.push({ style, title, content });
-    });
+  computed: {
+    ...mapState(toastStore, ['message']),
   },
 };
 </script>

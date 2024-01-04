@@ -2,8 +2,8 @@
 import { mapState, mapActions } from 'pinia';
 import productsStore from '@/stores/productsStore';
 import newsStore from '@/stores/newsStore';
+import toastStore from '@/stores/toastStore';
 import ProductListItem from '@/components/front/ProductListItem.vue';
-import emitter from '@/methods/emitter';
 
 export default {
   data() {
@@ -26,6 +26,7 @@ export default {
   methods: {
     ...mapActions(productsStore, ['getProducts']),
     ...mapActions(newsStore, ['getTop4News', 'routerPush']),
+    ...mapActions(toastStore, ['pushMsg']),
     changeNewsImg(src) {
       this.$refs.newsImg.style.backgroundImage = `url(${src})`;
       this.$refs.newsImg.style.opacity = '1';
@@ -118,7 +119,7 @@ export default {
     copyText() {
       const copyText = this.$refs.discount;
       navigator.clipboard.writeText(copyText.textContent);
-      emitter.emit('push-message', {
+      this.pushMsg({
         style: 'success',
         title: '已複製優惠碼',
       });

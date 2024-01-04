@@ -1,7 +1,9 @@
 import { defineStore } from 'pinia';
 import axios from 'axios';
 import router from '@/router';
-import emitter from '@/methods/emitter';
+import toastStore from './toastStore';
+
+const toast = toastStore();
 
 export default defineStore('cartStore', {
   state: () => ({
@@ -23,7 +25,7 @@ export default defineStore('cartStore', {
         return;
       }
 
-      emitter.emit('push-message', {
+      toast.pushMsg({
         style: 'danger',
         title: '購物車內無商品',
         content: '將於 2 秒後自動為您跳轉至商品頁',
@@ -46,7 +48,7 @@ export default defineStore('cartStore', {
         })
         .catch((err) => {
           if (err.request.status === 404) {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: '購物車取得失敗',
             });
@@ -77,12 +79,12 @@ export default defineStore('cartStore', {
 
           if (res.data.success) {
             this.getCart();
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'success',
               title: '成功加入購物車',
             });
           } else {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: '加入購物車失敗',
               content: res.data.message,
@@ -91,7 +93,7 @@ export default defineStore('cartStore', {
         })
         .catch((err) => {
           if (err.request.status === 404) {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: '加入購物車失敗',
               content: '抱歉，出現系統問題，請聯絡我們！',
@@ -117,12 +119,12 @@ export default defineStore('cartStore', {
 
           if (res.data.success) {
             this.getCart();
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'success',
               title: '成功更新購物車',
             });
           } else {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: '更新購物車失敗',
               content: res.data.message,
@@ -131,7 +133,7 @@ export default defineStore('cartStore', {
         })
         .catch((err) => {
           if (err.request.status === 404) {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: '更新購物車失敗',
               content: '抱歉，出現系統問題，請聯絡我們！',
@@ -148,12 +150,12 @@ export default defineStore('cartStore', {
 
           if (res.data.success) {
             this.getCart();
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'primary',
               title: '成功刪除商品',
             });
           } else {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: '刪除商品失敗',
               content: res.data.message,
@@ -162,7 +164,7 @@ export default defineStore('cartStore', {
         })
         .catch((err) => {
           if (err.request.status === 404) {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: '刪除商品失敗',
               content: '抱歉，出現系統問題，請聯絡我們！',
@@ -180,12 +182,12 @@ export default defineStore('cartStore', {
 
           if (res.data.success) {
             this.getCart();
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'primary',
               title: '成功刪除全部購物車',
             });
           } else {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: '刪除全部購物車失敗',
               content: res.data.message,
@@ -194,7 +196,7 @@ export default defineStore('cartStore', {
         })
         .catch((err) => {
           if (err.request.status === 404) {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: '刪除全部購物車失敗',
               content: '抱歉，出現系統問題，請聯絡我們！',
@@ -246,12 +248,12 @@ export default defineStore('cartStore', {
           this.isLoading = false;
 
           if (res.data.success) {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'success',
               title: '付款成功',
             });
           } else {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: '付款失敗',
               content: res.data.message,
@@ -260,7 +262,7 @@ export default defineStore('cartStore', {
         })
         .catch((err) => {
           if (err.request.status === 404) {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: '付款失敗',
               content: '抱歉，出現系統問題，請聯絡我們！',
@@ -280,12 +282,12 @@ export default defineStore('cartStore', {
 
           if (res.data.success) {
             this.getCart();
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'success',
               title: '成功訂購商品',
             });
           } else {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: '商品訂購失敗',
               content: res.data.message,
@@ -294,7 +296,7 @@ export default defineStore('cartStore', {
         })
         .catch((err) => {
           if (err.request.status === 404) {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: '商品訂購失敗',
               content: '抱歉，出現系統問題，請聯絡我們！',
@@ -313,12 +315,12 @@ export default defineStore('cartStore', {
 
           if (res.data.success) {
             this.getCart();
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'success',
               title: '成功使用折價券',
             });
           } else {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: '使用折價券失敗',
               content: res.data.message,
@@ -327,7 +329,7 @@ export default defineStore('cartStore', {
         })
         .catch((err) => {
           if (err.request.status === 404) {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: '使用折價券失敗',
               content: '抱歉，出現系統問題，請聯絡我們！',

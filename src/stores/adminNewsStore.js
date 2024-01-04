@@ -1,6 +1,8 @@
 import { defineStore } from 'pinia';
 import axios from 'axios';
-import emitter from '@/methods/emitter';
+import toastStore from './toastStore';
+
+const toast = toastStore();
 
 export default defineStore('adminNewsStore', {
   state: () => ({
@@ -23,7 +25,7 @@ export default defineStore('adminNewsStore', {
           this.isLoading = false;
 
           if (err.request.status === 404) {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: '消息取得失敗',
               content: '出現系統問題',
@@ -49,12 +51,12 @@ export default defineStore('adminNewsStore', {
 
           if (res.data.success) {
             this.getNews();
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'success',
               title: `成功${msg}消息`,
             });
           } else {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: `${msg}消息失敗`,
               content: res.data.message,
@@ -65,7 +67,7 @@ export default defineStore('adminNewsStore', {
           this.isLoading = false;
 
           if (err.request.status === 404) {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: '消息更新失敗',
               content: '出現系統問題',
@@ -83,12 +85,12 @@ export default defineStore('adminNewsStore', {
 
           if (res.data.success) {
             this.getNews();
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'primary',
               title: '成功刪除消息',
             });
           } else {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: '刪除消息失敗',
               content: res.data.message,
@@ -99,7 +101,7 @@ export default defineStore('adminNewsStore', {
           this.isLoading = false;
 
           if (err.request.status === 404) {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: '消息刪除失敗',
               content: '出現系統問題',

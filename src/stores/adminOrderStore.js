@@ -1,6 +1,8 @@
 import { defineStore } from 'pinia';
 import axios from 'axios';
-import emitter from '@/methods/emitter';
+import toastStore from './toastStore';
+
+const toast = toastStore();
 
 export default defineStore('adminOrderStore', {
   state: () => ({
@@ -23,7 +25,7 @@ export default defineStore('adminOrderStore', {
           this.isLoading = false;
 
           if (err.request.status === 404) {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: '訂單取得失敗',
               content: '出現系統問題',
@@ -41,12 +43,12 @@ export default defineStore('adminOrderStore', {
 
           if (res.data.success) {
             this.getOrders();
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'primary',
               title: '成功刪除訂單',
             });
           } else {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: '刪除訂單失敗',
               content: res.data.message,
@@ -57,7 +59,7 @@ export default defineStore('adminOrderStore', {
           this.isLoading = false;
 
           if (err.request.status === 404) {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: '訂單刪除失敗',
               content: '出現系統問題',

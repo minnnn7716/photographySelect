@@ -1,5 +1,6 @@
 <script>
-import emitter from '@/methods/emitter';
+import { mapActions } from 'pinia';
+import toastStore from '@/stores/toastStore';
 
 export default {
   data() {
@@ -21,6 +22,7 @@ export default {
     OuterFavoriteList: 'judgeStatus',
   },
   methods: {
+    ...mapActions(toastStore, ['pushMsg']),
     getFavoriteList() {
       const list = localStorage.getItem('favoriteList');
       this.favoriteList = list === null ? [] : JSON.parse(list);
@@ -40,7 +42,7 @@ export default {
       if (!this.isFavorite) {
         this.favoriteList.push(this.id);
 
-        emitter.emit('push-message', {
+        this.pushMsg({
           style: 'success',
           title: '加入喜愛清單',
         });
@@ -48,7 +50,7 @@ export default {
         const index = this.favoriteList.indexOf(this.id);
         this.favoriteList.splice(index, 1);
 
-        emitter.emit('push-message', {
+        this.pushMsg({
           style: 'primary',
           title: '移除喜愛清單',
         });

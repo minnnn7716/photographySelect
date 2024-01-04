@@ -1,6 +1,8 @@
 import { defineStore } from 'pinia';
 import axios from 'axios';
-import emitter from '@/methods/emitter';
+import toastStore from './toastStore';
+
+const toast = toastStore();
 
 export default defineStore('adminProductStore', {
   state: () => ({
@@ -21,7 +23,7 @@ export default defineStore('adminProductStore', {
           this.isLoading = false;
 
           if (err.request.status === 404) {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: '商品取得失敗',
               content: '出現系統問題',
@@ -39,12 +41,12 @@ export default defineStore('adminProductStore', {
 
           if (res.data.success) {
             this.getProducts();
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'primary',
               title: '成功刪除商品',
             });
           } else {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: '刪除商品失敗',
               content: res.data.message,
@@ -55,7 +57,7 @@ export default defineStore('adminProductStore', {
           this.isLoading = false;
 
           if (err.request.status === 404) {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: '商品刪除失敗',
               content: '出現系統問題',
@@ -81,12 +83,12 @@ export default defineStore('adminProductStore', {
 
           if (res.data.success) {
             this.getProducts();
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'success',
               title: `成功${msg}商品`,
             });
           } else {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: `${msg}商品失敗`,
               content: res.data.message,
@@ -97,7 +99,7 @@ export default defineStore('adminProductStore', {
           this.isLoading = false;
 
           if (err.request.status === 404) {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: '商品更新失敗',
               content: '出現系統問題',

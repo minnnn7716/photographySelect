@@ -1,4 +1,7 @@
 <script>
+import { mapActions } from 'pinia';
+import toastStore from '@/stores/toastStore';
+
 export default {
   data() {
     return {
@@ -10,6 +13,7 @@ export default {
     };
   },
   methods: {
+    ...mapActions(toastStore, ['pushMsg']),
     login() {
       const api = `${import.meta.env.VITE_API}admin/signin`;
       this.$http
@@ -20,12 +24,12 @@ export default {
 
           if (res.data.success) {
             this.$router.push('/admin/products');
-            this.$emitter.emit('push-message', {
+            this.pushMsg({
               style: 'success',
               title: '登入成功',
             });
           } else {
-            this.$emitter.emit('push-message', {
+            this.pushMsg({
               style: 'danger',
               title: '登入失敗',
             });

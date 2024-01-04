@@ -1,7 +1,9 @@
 import { defineStore } from 'pinia';
 import axios from 'axios';
-import emitter from '@/methods/emitter';
 import router from '@/router';
+import toastStore from './toastStore';
+
+const toast = toastStore();
 
 export default defineStore('newsStore', {
   state: () => ({
@@ -33,7 +35,7 @@ export default defineStore('newsStore', {
         })
         .catch((err) => {
           if (err.request.status === 404) {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: '消息取得失敗',
             });
@@ -57,7 +59,7 @@ export default defineStore('newsStore', {
         })
         .catch((err) => {
           if (err.request.status === 404) {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: '消息取得失敗',
             });
@@ -99,7 +101,7 @@ export default defineStore('newsStore', {
         })
         .catch((err) => {
           if (err.request.status === 404) {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: '消息取得失敗',
             });
@@ -120,7 +122,7 @@ export default defineStore('newsStore', {
         })
         .catch((err) => {
           if (err.request.status === 404) {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: '最新消息取得失敗',
               content: '抱歉，出現系統問題，請聯絡我們！',

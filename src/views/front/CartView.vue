@@ -2,7 +2,7 @@
 import { mapState, mapActions } from 'pinia';
 import cartStore from '@/stores/cartStore';
 import productsStore from '@/stores/productsStore';
-import emitter from '@/methods/emitter';
+import toastStore from '@/stores/toastStore';
 
 export default {
   data() {
@@ -22,6 +22,7 @@ export default {
       'nextStep',
     ]),
     ...mapActions(productsStore, ['routerPush']),
+    ...mapActions(toastStore, ['pushMsg']),
     availableNum(item) {
       const { totalNum, soldNum } = item.product;
       return totalNum - soldNum;
@@ -33,7 +34,7 @@ export default {
     copyText() {
       const copyText = this.$refs.discount;
       navigator.clipboard.writeText(copyText.textContent);
-      emitter.emit('push-message', {
+      this.pushMsg({
         style: 'success',
         title: '已複製優惠碼',
       });

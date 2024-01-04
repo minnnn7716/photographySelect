@@ -1,7 +1,9 @@
-import axios from 'axios';
 import { defineStore } from 'pinia';
+import axios from 'axios';
 import router from '@/router';
-import emitter from '@/methods/emitter';
+import toastStore from './toastStore';
+
+const toast = toastStore();
 
 export default defineStore('orderStore', {
   state: () => ({
@@ -30,7 +32,7 @@ export default defineStore('orderStore', {
           if (err.request.status === 404) {
             this.isLoading = false;
 
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: '取得訂單失敗',
               content: '抱歉，出現系統問題，請聯絡我們！',
@@ -53,7 +55,7 @@ export default defineStore('orderStore', {
           if (err.request.status === 404) {
             this.isLoading = false;
 
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: '取得訂單失敗',
               content: '抱歉，出現系統問題，請聯絡我們！',
@@ -67,7 +69,7 @@ export default defineStore('orderStore', {
       if (ary.length) {
         router.push(`/order/${email}`);
       } else {
-        emitter.emit('push-message', {
+        toast.pushMsg({
           style: 'danger',
           title: '查無訂單',
         });
@@ -86,12 +88,12 @@ export default defineStore('orderStore', {
           this.getUserOrders(userId);
 
           if (res.data.success) {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'success',
               title: '付款成功',
             });
           } else {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: '付款失敗',
               content: res.data.message,
@@ -102,7 +104,7 @@ export default defineStore('orderStore', {
           if (err.request.status === 404) {
             this.isLoading = false;
 
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: '付款失敗',
               content: '抱歉，出現系統問題，請聯絡我們！',

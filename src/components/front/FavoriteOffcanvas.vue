@@ -1,8 +1,10 @@
 <script>
+
 import { mapState, mapActions } from 'pinia';
 import emitter from '@/methods/emitter';
 import productsStore from '@/stores/productsStore';
 import cartStore from '@/stores/cartStore';
+import toastStore from '@/stores/toastStore';
 import offcanvasMixin from '@/mixins/offcanvasMixin';
 import FavoriteBtn from './FavoriteBtn.vue';
 import DeleteModal from './DeleteModal.vue';
@@ -25,6 +27,7 @@ export default {
   },
   methods: {
     ...mapActions(cartStore, ['addCart']),
+    ...mapActions(toastStore, ['pushMsg']),
     getFavoriteList() {
       const list = localStorage.getItem('favoriteList');
       this.favoriteList = list === null ? [] : JSON.parse(list);
@@ -53,7 +56,7 @@ export default {
       this.favoriteProducts = [];
       localStorage.setItem('favoriteList', JSON.stringify(this.favoriteList));
       emitter.emit('push-favorite', this.favoriteList);
-      emitter.emit('push-message', {
+      this.pushMsg({
         style: 'success',
         title: '成功移除所有喜愛清單',
       });

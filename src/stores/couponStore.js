@@ -1,6 +1,8 @@
 import { defineStore } from 'pinia';
 import axios from 'axios';
-import emitter from '@/methods/emitter';
+import toastStore from './toastStore';
+
+const toast = toastStore();
 
 export default defineStore('couponStore', {
   state: () => ({
@@ -21,7 +23,7 @@ export default defineStore('couponStore', {
         })
         .catch((err) => {
           if (err.request.status === 404) {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: '折價券取得失敗',
               content: '出現系統問題',
@@ -47,12 +49,12 @@ export default defineStore('couponStore', {
 
           if (res.data.success) {
             this.getCoupons();
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'success',
               title: `成功${msg}折價券`,
             });
           } else {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: `${msg}折價券失敗`,
               content: res.data.message,
@@ -61,7 +63,7 @@ export default defineStore('couponStore', {
         })
         .catch((err) => {
           if (err.request.status === 404) {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: '折價券更新失敗',
               content: '抱歉，出現系統問題，請聯絡我們！',
@@ -79,12 +81,12 @@ export default defineStore('couponStore', {
 
           if (res.data.success) {
             this.getCoupons();
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'primary',
               title: '成功刪除折價券',
             });
           } else {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: '刪除折價券失敗',
               content: res.data.message,
@@ -93,7 +95,7 @@ export default defineStore('couponStore', {
         })
         .catch((err) => {
           if (err.request.status === 404) {
-            emitter.emit('push-message', {
+            toast.pushMsg({
               style: 'danger',
               title: '折價券更新失敗',
               content: '出現系統問題',
