@@ -13,7 +13,9 @@ export default {
   watch: {
     '$route.params': {
       handler() {
-        if (this.$route.query.page) this.getProducts(this.$route.query.page);
+        if (this.$route.query.page) {
+          this.getProducts(this.$route.query.page);
+        }
       },
       deep: true,
       immediate: true,
