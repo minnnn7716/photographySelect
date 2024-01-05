@@ -1,4 +1,6 @@
 <script>
+import { mapActions } from 'pinia';
+import toastStore from '@/stores/toastStore';
 import offcanvasMixin from '@/mixins/offcanvasMixin';
 
 export default {
@@ -9,6 +11,7 @@ export default {
   },
   mixins: [offcanvasMixin],
   methods: {
+    ...mapActions(toastStore, ['pushMsg']),
     loginJudge() {
       const api = `${import.meta.env.VITE_API}api/user/check`;
       const token = document.cookie.replace(/(?:(?:^|.*;\s*)psToken\s*=\s*([^;]*).*$)|^.*$/, '$1');
@@ -23,6 +26,15 @@ export default {
             this.$router.push('/login');
           }
           this.offcanvas.hide();
+        })
+        .catch((err) => {
+          if (err.request.status === 404) {
+            this.pushMsg({
+              style: 'danger',
+              title: '登入憑證驗證失敗',
+              content: '抱歉，出現系統問題，請聯絡我們！',
+            });
+          }
         });
     },
   },

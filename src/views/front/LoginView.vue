@@ -21,7 +21,6 @@ export default {
         .then((res) => {
           const { token, expired } = res.data;
           document.cookie = `psToken=${token}; psExpired=${new Date(expired)}`;
-
           if (res.data.success) {
             this.$router.push('/admin/products');
             this.pushMsg({
@@ -32,6 +31,15 @@ export default {
             this.pushMsg({
               style: 'danger',
               title: '登入失敗',
+            });
+          }
+        })
+        .catch((err) => {
+          if (err.request.status === 404) {
+            this.pushMsg({
+              style: 'danger',
+              title: '登入失敗',
+              content: '抱歉，出現系統問題，請聯絡我們！',
             });
           }
         });

@@ -1,6 +1,7 @@
 <script>
 import { mapActions } from 'pinia';
 import adminProductStore from '@/stores/adminProductStore';
+import toastStore from '@/stores/toastStore';
 import modalMixin from '@/mixins/modalMixin';
 import RatingScore from '../front/RatingScore.vue';
 
@@ -42,6 +43,7 @@ export default {
   },
   methods: {
     ...mapActions(adminProductStore, ['updateProduct']),
+    ...mapActions(toastStore, ['pushMsg']),
     canAddImage() {
       if (this.tempUrlImage === '' && (this.tempLocalImage === '' || !this.tempLocalImage)) {
         this.hasImageFile = false;
@@ -86,6 +88,15 @@ export default {
           if (res.data.success) {
             this.tempProduct.imagesUrl.push(res.data.imageUrl);
             this.$refs.localImageInput.value = '';
+          }
+        })
+        .catch((err) => {
+          if (err.request.status === 404) {
+            this.pushMsg({
+              style: 'danger',
+              title: '圖片上傳失敗',
+              content: '出現系統問題',
+            });
           }
         });
     },

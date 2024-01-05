@@ -1,6 +1,7 @@
 <script>
 import { mapState, mapActions } from 'pinia';
 import adminCollapseStore from '@/stores/adminCollapseStore';
+import toastStore from '@/stores/toastStore';
 import AdminCollapseList from './AdminCollapseList.vue';
 
 export default {
@@ -9,6 +10,7 @@ export default {
   },
   methods: {
     ...mapActions(adminCollapseStore, ['closeCollapse']),
+    ...mapActions(toastStore, ['pushMsg']),
     logout() {
       const api = `${import.meta.env.VITE_API}logout`;
 
@@ -18,6 +20,20 @@ export default {
           if (res.data.success) {
             this.$router.push('/');
             document.cookie = `psToken=;psExpired= ${new Date(0).toGMTString()}`;
+
+            this.pushMsg({
+              style: 'success',
+              title: '登出成功',
+            });
+          }
+        })
+        .catch((err) => {
+          if (err.request.status === 404) {
+            this.pushMsg({
+              style: 'danger',
+              title: '登出失敗',
+              content: '出現系統問題',
+            });
           }
         });
     },

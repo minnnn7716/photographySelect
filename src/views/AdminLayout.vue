@@ -1,4 +1,6 @@
 <script>
+import { mapActions } from 'pinia';
+import toastStore from '@/stores/toastStore';
 import AdminNavBar from '@/components/admin/AdminNavBar.vue';
 import AdminSideBar from '@/components/admin/AdminSideBar.vue';
 import ToastMessages from '@/components/ToastMessages.vue';
@@ -8,6 +10,9 @@ export default {
     AdminNavBar,
     AdminSideBar,
     ToastMessages,
+  },
+  methods: {
+    ...mapActions(toastStore, ['pushMsg']),
   },
   created() {
     const api = `${import.meta.env.VITE_API}api/user/check`;
@@ -19,6 +24,15 @@ export default {
       .then((res) => {
         if (!res.data.success) {
           this.$router.push('/login');
+        }
+      })
+      .catch((err) => {
+        if (err.request.status === 404) {
+          this.pushMsg({
+            style: 'danger',
+            title: '後台載入失敗',
+            content: '抱歉，出現系統問題，請聯絡我們！',
+          });
         }
       });
   },
