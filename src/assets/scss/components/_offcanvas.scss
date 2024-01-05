@@ -1,17 +1,13 @@
-.offcanvas {
-  border-left: none !important;
-  border-right: none !important;
+.offcanvas.offcanvas-end.show {
+  border: 0;
+}
 
-  &-backdrop {
+.offcanvas-backdrop.fade.show {
+  opacity: 0;
+
+  @include media-breakpoint-up(lg) {
     width: 65vw;
-
-    &.show {
-      opacity: 0 !important;
-
-      @include media-breakpoint-up(lg) {
-        opacity: 0.5 !important;
-      }
-    }
+    opacity: 0.5;
   }
 }
 

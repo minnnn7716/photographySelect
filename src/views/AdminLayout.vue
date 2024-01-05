@@ -52,11 +52,11 @@ export default {
 @import '@/assets/scss/vendors/bootstrap';
 
 .admin {
-  &-table {
-    width: max-content !important;
+  &-table.table {
+    width: max-content;
 
     @include media-breakpoint-up(md) {
-      width: 100% !important;
+      width: 100%;
     }
   }
 

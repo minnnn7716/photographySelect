@@ -51,7 +51,7 @@ export default {
     </div>
   </a>
 
-  <div class="offcanvas offcanvas-end" tabindex="-1" ref="offcanvas">
+  <div class="offcanvas-custom offcanvas offcanvas-end border-0" tabindex="-1" ref="offcanvas">
     <div class="offcanvas-header justify-content-end">
       <button
         type="button"

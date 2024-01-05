@@ -37,7 +37,7 @@ export default {
       </div>
       <div class="row justify-content-center font-sans-tw">
         <div class="col-11 col-lg-6">
-          <VForm @submit="onSubmit" v-slot="{ errors }">
+          <VForm @submit="onSubmit" v-slot="{ errors }" class="orderSearchForm">
             <div class="form-floating position-relative mb-12" :class="{ error: errors['信箱'] }">
               <VField
                 v-model="email"

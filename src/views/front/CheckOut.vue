@@ -767,11 +767,11 @@ export default {
 }
 
 .checkout {
-  &-table {
-    width: max-content !important;
+  &-table.table {
+    width: max-content;
 
     @include media-breakpoint-up(lg) {
-      width: 100% !important;
+      width: 100%;
     }
   }
 

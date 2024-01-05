@@ -72,21 +72,23 @@
   }
 }
 
-.form-control:focus {
-  box-shadow: none;
-  border-color: transparent !important;
-}
+.orderSearchForm {
+  .form-control:focus {
+    box-shadow: none;
+    border-color: transparent;
+  }
 
-.form-floating > .form-control:focus ~ label,
-.form-floating > .form-control:not(:placeholder-shown) ~ label,
-.form-floating > .form-control-plaintext ~ label,
-.form-floating > .form-select ~ label {
-  transform: scale(0.85) translateY(-0.8rem) translateX(0.15rem);
-}
+  .form-floating > .form-control:focus ~ label,
+  .form-floating > .form-control:not(:placeholder-shown) ~ label,
+  .form-floating > .form-control-plaintext ~ label,
+  .form-floating > .form-select ~ label {
+    transform: scale(0.85) translateY(-0.8rem) translateX(0.15rem);
+  }
 
-.form-floating > .form-control:focus ~ label::after,
-.form-floating > .form-control:not(:placeholder-shown) ~ label::after,
-.form-floating > .form-control-plaintext ~ label::after,
-.form-floating > .form-select ~ label::after {
-  background-color: transparent !important;
+  .form-floating > .form-control:focus ~ label::after,
+  .form-floating > .form-control:not(:placeholder-shown) ~ label::after,
+  .form-floating > .form-control-plaintext ~ label::after,
+  .form-floating > .form-select ~ label::after {
+    background-color: transparent;
+  }
 }

@@ -100,16 +100,16 @@ export default {
           :key="`userOrder ${item.id}`"
         >
           <tr :class="{ 'table-custom-active': index === onClick }">
-            <td scope="row" class="d-none d-lg-table-cell">
+            <td scope="row" class="active-td d-none d-lg-table-cell">
               <p>#{{ index + 1 }} ｜ {{ item.id }}</p>
             </td>
-            <td class="text-center text-lg-start">
+            <td class="active-td text-center text-lg-start">
               <p>{{ $filters.date(item.create_at) }}</p>
             </td>
-            <td class="text-center text-lg-start">
+            <td class="active-td text-center text-lg-start">
               <p>NT$ {{ $filters.currency(item.total) }}</p>
             </td>
-            <td class="text-center text-lg-start">
+            <td class="active-td text-center text-lg-start">
               <p>
                 <span v-if="item.is_paid">已付款</span>
                 <span v-if="isCancel(item.create_at)" class="text-gray-700">已取消</span>
@@ -120,7 +120,7 @@ export default {
                 >
               </p>
             </td>
-            <td class="text-end">
+            <td class="active-td text-end">
               <button type="button" class="btn p-2 border-0">
                 <div class="icon-plus"></div>
               </button>
@@ -255,16 +255,16 @@ export default {
 }
 
 .table-custom-active {
-  td {
+  .active-td {
     position: relative;
     vertical-align: bottom;
-    padding-top: 28px !important;
-    padding-left: 0 !important;
-    padding-bottom: 0 !important;
+    padding-top: 28px;
+    padding-left: 0;
+    padding-bottom: 0;
     border-bottom: 0;
 
     @include media-breakpoint-up(lg) {
-      padding-top: 32px !important;
+      padding-top: 32px;
     }
 
     &:not(:last-child) {
