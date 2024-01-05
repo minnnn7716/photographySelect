@@ -17,7 +17,6 @@ import { createMetaManager } from 'vue-meta';
 import router from './router';
 import App from './App.vue';
 import { currency, date } from './methods/filters';
-import emitter from './methods/emitter';
 
 const app = createApp(App);
 const meta = createMetaManager();
@@ -47,4 +46,3 @@ app.component('ErrorMessage', ErrorMessage);
 app.mount('#app');
 
 app.config.globalProperties.$filters = { currency, date };
-app.config.globalProperties.$emitter = emitter;
