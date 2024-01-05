@@ -1,25 +1,24 @@
 <script>
-import collapseMixin from '@/mixins/collapseMixin';
+import { mapState, mapActions } from 'pinia';
+import adminCollapseStore from '@/stores/adminCollapseStore';
 import ProductModal from './ProductModal.vue';
 
 export default {
   data() {
     return {
-      collapse: '',
       isNew: true,
       tempProduct: {},
       currentUrl: '',
     };
   },
-  mixins: [collapseMixin],
   components: {
     ProductModal,
   },
   methods: {
+    ...mapActions(adminCollapseStore, ['collapseInit', 'toggleCollapse', 'closeCollapse']),
     openModal() {
       this.collapse.hide();
-      this.isShow = false;
-      this.collapseEmit();
+      this.closeCollapse();
 
       this.tempProduct = {
         totalNum: 1,
@@ -35,17 +34,14 @@ export default {
       this.routerPush(`/admin/${path}`);
     },
   },
-  created() {
-    this.$emitter.on('close-collapse', (data) => {
-      if (data === false) {
-        this.isShow = data;
-        this.collapse.hide();
-      }
-    });
+  computed: {
+    ...mapState(adminCollapseStore, ['collapse', 'isShow']),
   },
   mounted() {
     const url = this.$route.path.split('/')[2];
     this.currentUrl = url;
+
+    this.collapseInit(this.$refs.collapse);
   },
 };
 </script>

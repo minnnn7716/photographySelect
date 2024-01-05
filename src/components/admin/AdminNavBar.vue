@@ -1,16 +1,14 @@
 <script>
+import { mapState, mapActions } from 'pinia';
+import adminCollapseStore from '@/stores/adminCollapseStore';
 import AdminCollapseList from './AdminCollapseList.vue';
 
 export default {
-  data() {
-    return {
-      isShow: false,
-    };
-  },
   components: {
     AdminCollapseList,
   },
   methods: {
+    ...mapActions(adminCollapseStore, ['closeCollapse']),
     logout() {
       const api = `${import.meta.env.VITE_API}logout`;
 
@@ -23,15 +21,9 @@ export default {
           }
         });
     },
-    closeCollapse() {
-      this.isShow = false;
-      this.$emitter.emit('close-collapse', this.isShow);
-    },
   },
-  created() {
-    this.$emitter.on('collapse-show', (data) => {
-      this.isShow = data;
-    });
+  computed: {
+    ...mapState(adminCollapseStore, ['isShow']),
   },
 };
 </script>
