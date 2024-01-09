@@ -13,6 +13,7 @@ export default {
         prev: false,
         next: true,
         ratio: 1,
+        maxRatio: 3,
       },
       timerDate: '',
       hour: 0,
@@ -50,18 +51,22 @@ export default {
       if (action === 'next' && this.pick.translateX > moveMax) {
         if (this.pick.translateX - moveMax > moveUnit && this.pick.translateX - moveMax > 1) {
           this.pick.translateX -= moveUnit;
+          this.pick.ratio += 1;
         } else {
           this.pick.translateX = moveMax;
           this.pick.next = false;
+          this.pick.ratio = this.pick.maxRatio;
         }
       }
 
       if (action === 'prev' && this.pick.translateX < moveMin) {
         if (this.pick.translateX - moveMax < moveUnit) {
           this.pick.translateX += moveUnit;
+          this.pick.ratio -= 1;
         } else {
           this.pick.translateX = 0;
           this.pick.prev = false;
+          this.pick.ratio = 1;
         }
       }
 
@@ -390,13 +395,8 @@ export default {
                 >
                   <div
                     class="bg-gray rounded-pill position-absolute top-0 left-0 transition-5"
-                    :class="{
-                      'w-25': pick.ratio === 1,
-                      'w-50': pick.ratio === 2,
-                      'w-75': pick.ratio === 3,
-                      'w-100': pick.ratio === 4
-                    }"
                     style="height: 4px"
+                    :style="{'width':` ${pick.ratio / pick.maxRatio * 100}%`}"
                   ></div>
                 </div>
                 <ul class="list-unstyled d-flex mb-0">
@@ -458,9 +458,9 @@ export default {
             >
               Special
             </h3>
-            <div class="fs-5 fs-lg-normal-1 fs-xxl-5 font-sans-tw
+            <div class="fs-5 fs-lg-6 fs-xxl-5 font-sans-tw
             text-center text-lg-start mb-4 mb-lg-0">
-              <p class="mb-3">限時活動至明天下午 15:43</p>
+              <p class="mb-3">全館 8 折優惠，<br class="d-xl-none">限時活動至明天下午 15:43</p>
               <div class="d-flex flex-column flex-md-row align-items-center">
                 <div class="d-flex align-items-center mb-2 mb-md-0">
                   <p>結帳時輸入</p>
@@ -483,7 +483,6 @@ export default {
                     </button>
                   </div>
                 </div>
-                <p>全館享有 8 折優惠</p>
               </div>
             </div>
             <time

@@ -36,7 +36,7 @@ export default {
   @click.prevent="routerPush(product.id)"
   class="productList-item flex-grow-1 d-flex flex-column link-dark">
     <div
-      class="productList-item-image position-relative flex-grow-1
+      class="productList-item-image position-relative
       d-flex flex-column justify-content-center overflow-hidden"
     >
       <div class="flex-grow-1">
@@ -63,7 +63,7 @@ export default {
       />
       <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
         <p class="fs-6 fs-md-4">
-          NT$ <span class="fs-4 fs-md-3">{{ $filters.currency(product.price) }}</span>
+          NT$ <span class="fs-4 fs-lg-3">{{ $filters.currency(product.price) }}</span>
         </p>
         <div class="d-flex align-items-center">
           <FavoriteBtn :id="product.id" />
