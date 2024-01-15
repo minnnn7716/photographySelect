@@ -1,0 +1,1 @@
+import{l as a}from"./index-8558fa27.js";const i=a("toastStore",{state:()=>({message:[]}),actions:{pushMsg(t){const{style:s,title:e,content:o}=t;this.message.push({style:s,title:e,content:o})},resetMsg(){this.message=[]}}});export{i as t};
