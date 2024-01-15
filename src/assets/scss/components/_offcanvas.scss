@@ -1,22 +1,14 @@
 .offcanvas.offcanvas-end.show {
   border: 0;
+  --bs-offcanvas-width: 30vw;
+  backdrop-filter: blur(6px);
 }
 
 .offcanvas-backdrop.fade.show {
   opacity: 0;
 
   @include media-breakpoint-up(lg) {
-    width: 65vw;
+    width: 70vw;
     opacity: 0.5;
   }
-}
-
-.offcanvas,
-.offcanvas-xxl,
-.offcanvas-xl,
-.offcanvas-lg,
-.offcanvas-md,
-.offcanvas-sm {
-  --bs-offcanvas-width: 35vw;
-  backdrop-filter: blur(6px);
 }
