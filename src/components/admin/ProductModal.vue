@@ -162,10 +162,10 @@ export default {
                       <option value="景致">景致</option>
                       <option value="複合">複合</option>
                     </VField>
-                    <ErrorMessage
+                    <ErrorMsg
                       name="分類"
                       class="error-text position-absolute fs-normal-1 fs-lg-6 text-danger"
-                    ></ErrorMessage>
+                    ></ErrorMsg>
                   </div>
                 </div>
                 <div
@@ -182,10 +182,10 @@ export default {
                       v-model="tempProduct.title"
                       class="form-control py-2 rounded-3 bg-gray-300 text-black"
                     ></VField>
-                    <ErrorMessage
+                    <ErrorMsg
                       name="標題"
                       class="error-text position-absolute fs-normal-1 fs-lg-6 text-danger mb-1"
-                    ></ErrorMessage>
+                    ></ErrorMsg>
                   </div>
                 </div>
                 <div
@@ -202,10 +202,10 @@ export default {
                       v-model="tempProduct.author"
                       class="form-control py-2 rounded-3 bg-gray-300"
                     ></VField>
-                    <ErrorMessage
+                    <ErrorMsg
                       name="作者"
                       class="error-text position-absolute fs-normal-1 fs-lg-6 text-danger mb-1"
-                    ></ErrorMessage>
+                    ></ErrorMsg>
                   </div>
                 </div>
                 <div
@@ -223,10 +223,10 @@ export default {
                       v-model="tempProduct.origin_price"
                       class="form-control py-2 rounded-3 bg-gray-300"
                     ></VField>
-                    <ErrorMessage
+                    <ErrorMsg
                       name="定價"
                       class="error-text position-absolute fs-normal-1 fs-lg-6 text-danger mb-1"
-                    ></ErrorMessage>
+                    ></ErrorMsg>
                   </div>
                 </div>
                 <div
@@ -244,10 +244,10 @@ export default {
                       v-model="tempProduct.price"
                       class="form-control py-2 rounded-3 bg-gray-300"
                     ></VField>
-                    <ErrorMessage
+                    <ErrorMsg
                       name="售價"
                       class="error-text position-absolute fs-normal-1 fs-lg-6 text-danger mb-1"
-                    ></ErrorMessage>
+                    ></ErrorMsg>
                   </div>
                 </div>
                 <div
@@ -264,10 +264,10 @@ export default {
                       v-model="tempProduct.unit"
                       class="form-control flex-fit py-2 rounded-3 bg-gray-300"
                     ></VField>
-                    <ErrorMessage
+                    <ErrorMsg
                       name="單位"
                       class="error-text position-absolute fs-normal-1 fs-lg-6 text-danger mb-1"
-                    ></ErrorMessage>
+                    ></ErrorMsg>
                   </div>
                 </div>
                 <div
@@ -285,10 +285,10 @@ export default {
                       v-model="tempProduct.totalNum"
                       class="form-control flex-fit py-2 rounded-3 bg-gray-300"
                     ></VField>
-                    <ErrorMessage
+                    <ErrorMsg
                       name="總數"
                       class="error-text position-absolute fs-normal-1 fs-lg-6 text-danger mb-1"
-                    ></ErrorMessage>
+                    ></ErrorMsg>
                   </div>
                 </div>
                 <div class="col-6 col-lg-2 d-flex align-items-center mb-6 mb-lg-8">
@@ -321,10 +321,10 @@ export default {
                       v-model="tempProduct.format"
                       rules="required"
                     ></VField>
-                    <ErrorMessage
+                    <ErrorMsg
                       name="規格"
                       class="error-text position-absolute fs-normal-1 fs-lg-6 text-danger mb-1"
-                    ></ErrorMessage>
+                    ></ErrorMsg>
                   </div>
                 </div>
                 <div
@@ -343,10 +343,10 @@ export default {
                       v-model="tempProduct.content"
                       rules="required"
                     ></VField>
-                    <ErrorMessage
+                    <ErrorMsg
                       name="內文"
                       class="error-text position-absolute fs-normal-1 fs-lg-6 text-danger mb-1"
-                    ></ErrorMessage>
+                    ></ErrorMsg>
                   </div>
                 </div>
               </div>

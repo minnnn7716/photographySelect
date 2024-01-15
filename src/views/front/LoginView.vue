@@ -83,10 +83,10 @@ export default {
               ></VField>
               <label for="email">信箱</label>
               <span class="error-bg position-absolute z-minus-1"></span>
-              <ErrorMessage
+              <ErrorMsg
                 name="email"
                 class="error-text position-absolute fs-6 text-danger ps-3 mb-1"
-              ></ErrorMessage>
+              ></ErrorMsg>
             </div>
             <div class="form-floating position-relative" :class="{ error: errors['密碼'] }">
               <button
@@ -112,10 +112,10 @@ export default {
               ></VField>
               <label for="password">密碼</label>
               <span class="error-bg position-absolute z-minus-1"></span>
-              <ErrorMessage
+              <ErrorMsg
                 name="密碼"
                 class="error-text position-absolute fs-6 text-danger ps-3 mb-1"
-              ></ErrorMessage>
+              ></ErrorMsg>
             </div>
           </VForm>
           <div class="row justify-content-center">

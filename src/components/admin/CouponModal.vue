@@ -102,10 +102,10 @@ export default {
                   v-model="tempCoupon.title"
                   class="form-control flex-fit py-2 rounded-3 text-black bg-gray-300"
                 ></VField>
-                <ErrorMessage
+                <ErrorMsg
                   name="活動名稱"
                   class="error-text position-absolute fs-6 text-danger mb-1"
-                ></ErrorMessage>
+                ></ErrorMsg>
               </div>
             </div>
             <div
@@ -122,10 +122,10 @@ export default {
                   v-model="tempCoupon.code"
                   class="form-control flex-fit py-2 rounded-3 text-black bg-gray-300"
                 ></VField>
-                <ErrorMessage
+                <ErrorMsg
                   name="優惠碼"
                   class="error-text position-absolute fs-6 text-danger mb-1"
-                ></ErrorMessage>
+                ></ErrorMsg>
               </div>
             </div>
             <div
@@ -146,10 +146,10 @@ export default {
                   ></VField>
                   <p class="ms-4">%</p>
                 </div>
-                <ErrorMessage
+                <ErrorMsg
                   name="折扣"
                   class="error-text position-absolute fs-6 text-danger mb-1"
-                ></ErrorMessage>
+                ></ErrorMsg>
               </div>
             </div>
             <div
@@ -167,10 +167,10 @@ export default {
                   @change="getDate($event.target.value, 'tempStartDate')"
                   class="form-control flex-fit py-2 rounded-3 text-black bg-gray-300"
                 ></VField>
-                <ErrorMessage
+                <ErrorMsg
                   name="起始日"
                   class="error-text position-absolute fs-6 text-danger mb-1"
-                ></ErrorMessage>
+                ></ErrorMsg>
               </div>
             </div>
             <div
@@ -187,10 +187,10 @@ export default {
                   v-model="tempDueDate"
                   class="form-control flex-fit py-2 rounded-3 text-black bg-gray-300"
                 ></VField>
-                <ErrorMessage
+                <ErrorMsg
                   name="到期日"
                   class="error-text position-absolute fs-6 text-danger mb-1"
-                ></ErrorMessage>
+                ></ErrorMsg>
               </div>
             </div>
           </VForm>

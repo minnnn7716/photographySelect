@@ -143,10 +143,10 @@ export default {
                     v-model="tempNews.title"
                     class="form-control flex-fit py-2 rounded-3 text-black bg-gray-300"
                   ></VField>
-                  <ErrorMessage
+                  <ErrorMsg
                     name="標題"
                     class="error-text position-absolute fs-6 text-danger"
-                  ></ErrorMessage>
+                  ></ErrorMsg>
                 </div>
               </div>
               <div
@@ -164,10 +164,10 @@ export default {
                     placeholder="標籤一, 標籤二, 標籤三"
                     class="form-control flex-fit py-2 rounded-3 text-black bg-gray-300"
                   ></VField>
-                  <ErrorMessage
+                  <ErrorMsg
                     name="標籤"
                     class="error-text position-absolute fs-6 text-danger mb-1"
-                  ></ErrorMessage>
+                  ></ErrorMsg>
                 </div>
               </div>
               <div
@@ -184,10 +184,10 @@ export default {
                     v-model="tempNews.author"
                     class="form-control flex-fit py-2 rounded-3 text-black bg-gray-300"
                   ></VField>
-                  <ErrorMessage
+                  <ErrorMsg
                     name="作者"
                     class="error-text position-absolute fs-6 text-danger mb-1"
-                  ></ErrorMessage>
+                  ></ErrorMsg>
                 </div>
               </div>
               <div
@@ -206,10 +206,10 @@ export default {
                     v-model="tempNews.description"
                     class="form-control flex-fit py-2 rounded-3 bg-gray-300"
                   ></VField>
-                  <ErrorMessage
+                  <ErrorMsg
                     name="內文"
                     class="error-text position-absolute fs-6 text-danger mb-1"
-                  ></ErrorMessage>
+                  ></ErrorMsg>
                 </div>
               </div>
             </div>

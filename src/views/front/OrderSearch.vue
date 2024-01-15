@@ -56,10 +56,10 @@ export default {
               >
                 <img src="@/assets/images/icon-send.svg" alt="送出" />
               </button>
-              <ErrorMessage
+              <ErrorMsg
                 name="信箱"
                 class="error-text position-absolute fs-6 text-danger ps-3 mb-1"
-              ></ErrorMessage>
+              ></ErrorMsg>
             </div>
           </VForm>
           <ul class="fs-normal-1 fw-300">

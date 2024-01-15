@@ -42,7 +42,7 @@ app.use(router);
 app.component('LoadingOverlay', Loading);
 app.component('VForm', Form);
 app.component('VField', Field);
-app.component('ErrorMessage', ErrorMessage);
+app.component('ErrorMsg', ErrorMessage);
 app.mount('#app');
 
 app.config.globalProperties.$filters = { currency, date };

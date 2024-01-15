@@ -162,10 +162,10 @@ export default {
                   class="form-control py-2 py-lg-3 rounded-3 shadow-xs"
                   v-model="orderData.user.name"
                 ></VField>
-                <ErrorMessage
+                <ErrorMsg
                   name="姓名"
                   class="error-text position-absolute fs-normal-1 fs-lg-6 text-danger mt-lg-1"
-                ></ErrorMessage>
+                ></ErrorMsg>
               </div>
             </div>
             <div class="col-12 col-lg-6 d-flex align-items-center">
@@ -182,10 +182,10 @@ export default {
                   v-model="orderData.user.tel"
                   placeholder="不含 - 符號的手機或室話"
                 ></VField>
-                <ErrorMessage
+                <ErrorMsg
                   name="電話"
                   class="error-text position-absolute fs-normal-1 fs-lg-6 text-danger mt-lg-1"
-                ></ErrorMessage>
+                ></ErrorMsg>
               </div>
             </div>
             <div class="col-12 d-flex align-items-center">
@@ -201,10 +201,10 @@ export default {
                   class="form-control flex-fit py-2 py-lg-3 rounded-3 shadow-xs"
                   v-model="orderData.user.email"
                 ></VField>
-                <ErrorMessage
+                <ErrorMsg
                   name="信箱"
                   class="error-text position-absolute fs-normal-1 fs-lg-6 text-danger mt-lg-1"
-                ></ErrorMessage>
+                ></ErrorMsg>
               </div>
             </div>
             <fieldset class="col-12 d-flex align-items-center">
@@ -268,10 +268,10 @@ export default {
                     </label>
                   </div>
                 </div>
-                <ErrorMessage
+                <ErrorMsg
                   name="取貨方式"
                   class="error-text position-absolute fs-normal-1 fs-lg-6 text-danger mt-lg-1"
-                ></ErrorMessage>
+                ></ErrorMsg>
               </div>
             </fieldset>
             <div class="col-12 d-flex align-items-center" v-if="orderData.user.takeout === '宅配'">
@@ -285,10 +285,10 @@ export default {
                   rules="required"
                   v-model="orderData.user.address"
                 ></VField>
-                <ErrorMessage
+                <ErrorMsg
                   name="地址"
                   class="error-text position-absolute fs-normal-1 fs-lg-6 text-danger mt-lg-1"
-                ></ErrorMessage>
+                ></ErrorMsg>
               </div>
             </div>
             <fieldset class="col-12 d-flex align-items-center">
@@ -352,10 +352,10 @@ export default {
                     </label>
                   </div>
                 </div>
-                <ErrorMessage
+                <ErrorMsg
                   name="付款方式"
                   class="error-text position-absolute fs-normal-1 fs-lg-6 text-danger mt-lg-1"
-                ></ErrorMessage>
+                ></ErrorMsg>
               </div>
             </fieldset>
             <fieldset class="col-12 d-flex align-items-center mb-2">
@@ -413,10 +413,10 @@ export default {
                         v-model="orderData.user.billNum"
                       ></VField>
                     </div>
-                    <ErrorMessage
+                    <ErrorMsg
                       name="電子載具"
                       class="error-text position-absolute fs-normal-1 fs-lg-6 text-danger mt-lg-1"
-                    ></ErrorMessage>
+                    ></ErrorMsg>
                   </div>
                 </div>
                 <div class="normalInput d-lg-none" :class="{ error: errors['電子載具'] }">
@@ -430,15 +430,15 @@ export default {
                         v-model="orderData.user.billNum"
                       ></VField>
                     </div>
-                    <ErrorMessage
+                    <ErrorMsg
                       name="電子載具"
                       class="error-text position-absolute fs-normal-1 fs-lg-6 text-danger mt-lg-1"
-                    ></ErrorMessage>
+                    ></ErrorMsg>
                   </div>
-                <ErrorMessage
+                <ErrorMsg
                   name="發票類型"
                   class="error-text position-absolute fs-normal-1 fs-lg-6 text-danger mt-lg-1"
-                ></ErrorMessage>
+                ></ErrorMsg>
               </div>
             </fieldset>
             <div class="d-flex">
