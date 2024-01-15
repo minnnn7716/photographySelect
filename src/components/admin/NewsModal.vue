@@ -79,14 +79,12 @@ export default {
             this.$refs.localImageInput.value = '';
           }
         })
-        .catch((err) => {
-          if (err.request.status === 404) {
-            this.pushMsg({
-              style: 'danger',
-              title: '圖片上傳失敗',
-              content: '出現系統問題',
-            });
-          }
+        .catch(() => {
+          this.pushMsg({
+            style: 'danger',
+            title: '圖片上傳失敗',
+            content: '出現系統問題',
+          });
         });
     },
     deleteImg() {

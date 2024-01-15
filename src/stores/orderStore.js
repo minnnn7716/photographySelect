@@ -28,16 +28,14 @@ export default defineStore('orderStore', {
           this.pagination = res.data.pagination;
           this.isLoading = false;
         })
-        .catch((err) => {
-          if (err.request.status === 404) {
-            this.isLoading = false;
+        .catch(() => {
+          this.isLoading = false;
 
-            toast.pushMsg({
-              style: 'danger',
-              title: '取得訂單失敗',
-              content: '抱歉，出現系統問題，請聯絡我們！',
-            });
-          }
+          toast.pushMsg({
+            style: 'danger',
+            title: '取得訂單失敗',
+            content: '抱歉，出現系統問題，請聯絡我們！',
+          });
         });
     },
     getUserOrders(id) {
@@ -51,16 +49,14 @@ export default defineStore('orderStore', {
           this.filterOrder(id);
           this.isLoading = false;
         })
-        .catch((err) => {
-          if (err.request.status === 404) {
-            this.isLoading = false;
+        .catch(() => {
+          this.isLoading = false;
 
-            toast.pushMsg({
-              style: 'danger',
-              title: '取得訂單失敗',
-              content: '抱歉，出現系統問題，請聯絡我們！',
-            });
-          }
+          toast.pushMsg({
+            style: 'danger',
+            title: '取得訂單失敗',
+            content: '抱歉，出現系統問題，請聯絡我們！',
+          });
         });
     },
     searchOrder(email) {
@@ -100,16 +96,14 @@ export default defineStore('orderStore', {
             });
           }
         })
-        .catch((err) => {
-          if (err.request.status === 404) {
-            this.isLoading = false;
+        .catch(() => {
+          this.isLoading = false;
 
-            toast.pushMsg({
-              style: 'danger',
-              title: '付款失敗',
-              content: '抱歉，出現系統問題，請聯絡我們！',
-            });
-          }
+          toast.pushMsg({
+            style: 'danger',
+            title: '付款失敗',
+            content: '抱歉，出現系統問題，請聯絡我們！',
+          });
         });
     },
     dueDate(time) {

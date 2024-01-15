@@ -21,16 +21,14 @@ export default defineStore('adminOrderStore', {
           this.pagination = res.data.pagination;
           this.isLoading = false;
         })
-        .catch((err) => {
+        .catch(() => {
           this.isLoading = false;
 
-          if (err.request.status === 404) {
-            toast.pushMsg({
-              style: 'danger',
-              title: '訂單取得失敗',
-              content: '出現系統問題',
-            });
-          }
+          toast.pushMsg({
+            style: 'danger',
+            title: '訂單取得失敗',
+            content: '出現系統問題',
+          });
         });
     },
     deleteOrder(id) {
@@ -55,16 +53,14 @@ export default defineStore('adminOrderStore', {
             });
           }
         })
-        .catch((err) => {
+        .catch(() => {
           this.isLoading = false;
 
-          if (err.request.status === 404) {
-            toast.pushMsg({
-              style: 'danger',
-              title: '訂單刪除失敗',
-              content: '出現系統問題',
-            });
-          }
+          toast.pushMsg({
+            style: 'danger',
+            title: '訂單刪除失敗',
+            content: '出現系統問題',
+          });
         });
     },
   },

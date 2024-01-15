@@ -21,14 +21,12 @@ export default defineStore('couponStore', {
           this.pagination = res.data.pagination;
           this.isLoading = false;
         })
-        .catch((err) => {
-          if (err.request.status === 404) {
-            toast.pushMsg({
-              style: 'danger',
-              title: '折價券取得失敗',
-              content: '出現系統問題',
-            });
-          }
+        .catch(() => {
+          toast.pushMsg({
+            style: 'danger',
+            title: '折價券取得失敗',
+            content: '出現系統問題',
+          });
         });
     },
     updatedCoupon(item) {
@@ -61,14 +59,12 @@ export default defineStore('couponStore', {
             });
           }
         })
-        .catch((err) => {
-          if (err.request.status === 404) {
-            toast.pushMsg({
-              style: 'danger',
-              title: '折價券更新失敗',
-              content: '抱歉，出現系統問題，請聯絡我們！',
-            });
-          }
+        .catch(() => {
+          toast.pushMsg({
+            style: 'danger',
+            title: '折價券更新失敗',
+            content: '抱歉，出現系統問題，請聯絡我們！',
+          });
         });
     },
     deleteCoupon(id) {
@@ -93,14 +89,12 @@ export default defineStore('couponStore', {
             });
           }
         })
-        .catch((err) => {
-          if (err.request.status === 404) {
-            toast.pushMsg({
-              style: 'danger',
-              title: '折價券更新失敗',
-              content: '出現系統問題',
-            });
-          }
+        .catch(() => {
+          toast.pushMsg({
+            style: 'danger',
+            title: '折價券更新失敗',
+            content: '出現系統問題',
+          });
         });
     },
     convertEnabled(ary) {

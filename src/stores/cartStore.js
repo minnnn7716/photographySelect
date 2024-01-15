@@ -46,15 +46,13 @@ export default defineStore('cartStore', {
           this.getCoupon();
           this.isLoading = false;
         })
-        .catch((err) => {
-          if (err.request.status === 404) {
-            toast.pushMsg({
-              style: 'danger',
-              title: '購物車取得失敗',
-            });
+        .catch(() => {
+          toast.pushMsg({
+            style: 'danger',
+            title: '購物車取得失敗',
+          });
 
-            router.push('/notfound');
-          }
+          router.push('/notfound');
         });
     },
     getTotalNum() {
@@ -91,14 +89,12 @@ export default defineStore('cartStore', {
             });
           }
         })
-        .catch((err) => {
-          if (err.request.status === 404) {
-            toast.pushMsg({
-              style: 'danger',
-              title: '加入購物車失敗',
-              content: '抱歉，出現系統問題，請聯絡我們！',
-            });
-          }
+        .catch(() => {
+          toast.pushMsg({
+            style: 'danger',
+            title: '加入購物車失敗',
+            content: '抱歉，出現系統問題，請聯絡我們！',
+          });
         });
     },
     buyNow(id, qty) {
@@ -131,14 +127,12 @@ export default defineStore('cartStore', {
             });
           }
         })
-        .catch((err) => {
-          if (err.request.status === 404) {
-            toast.pushMsg({
-              style: 'danger',
-              title: '更新購物車失敗',
-              content: '抱歉，出現系統問題，請聯絡我們！',
-            });
-          }
+        .catch(() => {
+          toast.pushMsg({
+            style: 'danger',
+            title: '更新購物車失敗',
+            content: '抱歉，出現系統問題，請聯絡我們！',
+          });
         });
     },
     deleteCart(id) {
@@ -162,14 +156,12 @@ export default defineStore('cartStore', {
             });
           }
         })
-        .catch((err) => {
-          if (err.request.status === 404) {
-            toast.pushMsg({
-              style: 'danger',
-              title: '刪除商品失敗',
-              content: '抱歉，出現系統問題，請聯絡我們！',
-            });
-          }
+        .catch(() => {
+          toast.pushMsg({
+            style: 'danger',
+            title: '刪除商品失敗',
+            content: '抱歉，出現系統問題，請聯絡我們！',
+          });
         });
     },
     deleteAllCart() {
@@ -194,14 +186,12 @@ export default defineStore('cartStore', {
             });
           }
         })
-        .catch((err) => {
-          if (err.request.status === 404) {
-            toast.pushMsg({
-              style: 'danger',
-              title: '刪除全部購物車失敗',
-              content: '抱歉，出現系統問題，請聯絡我們！',
-            });
-          }
+        .catch(() => {
+          toast.pushMsg({
+            style: 'danger',
+            title: '刪除全部購物車失敗',
+            content: '抱歉，出現系統問題，請聯絡我們！',
+          });
         });
     },
     nextStep(page) {
@@ -260,14 +250,12 @@ export default defineStore('cartStore', {
             });
           }
         })
-        .catch((err) => {
-          if (err.request.status === 404) {
-            toast.pushMsg({
-              style: 'danger',
-              title: '付款失敗',
-              content: '抱歉，出現系統問題，請聯絡我們！',
-            });
-          }
+        .catch(() => {
+          toast.pushMsg({
+            style: 'danger',
+            title: '付款失敗',
+            content: '抱歉，出現系統問題，請聯絡我們！',
+          });
         });
     },
     orderCart(order, step) {
@@ -294,14 +282,12 @@ export default defineStore('cartStore', {
             });
           }
         })
-        .catch((err) => {
-          if (err.request.status === 404) {
-            toast.pushMsg({
-              style: 'danger',
-              title: '商品訂購失敗',
-              content: '抱歉，出現系統問題，請聯絡我們！',
-            });
-          }
+        .catch(() => {
+          toast.pushMsg({
+            style: 'danger',
+            title: '商品訂購失敗',
+            content: '抱歉，出現系統問題，請聯絡我們！',
+          });
         });
     },
     // coupon
@@ -327,14 +313,12 @@ export default defineStore('cartStore', {
             });
           }
         })
-        .catch((err) => {
-          if (err.request.status === 404) {
-            toast.pushMsg({
-              style: 'danger',
-              title: '使用折價券失敗',
-              content: '抱歉，出現系統問題，請聯絡我們！',
-            });
-          }
+        .catch(() => {
+          toast.pushMsg({
+            style: 'danger',
+            title: '使用折價券失敗',
+            content: '抱歉，出現系統問題，請聯絡我們！',
+          });
         });
     },
     getCoupon() {

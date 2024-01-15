@@ -27,14 +27,12 @@ export default {
             });
           }
         })
-        .catch((err) => {
-          if (err.request.status === 404) {
-            this.pushMsg({
-              style: 'danger',
-              title: '登出失敗',
-              content: '出現系統問題',
-            });
-          }
+        .catch(() => {
+          this.pushMsg({
+            style: 'danger',
+            title: '登出失敗',
+            content: '出現系統問題',
+          });
         });
     },
   },

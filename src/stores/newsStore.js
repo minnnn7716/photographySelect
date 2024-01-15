@@ -33,15 +33,13 @@ export default defineStore('newsStore', {
             router.push(`/news?page=${page}`);
           }
         })
-        .catch((err) => {
-          if (err.request.status === 404) {
-            toast.pushMsg({
-              style: 'danger',
-              title: '消息取得失敗',
-            });
+        .catch(() => {
+          toast.pushMsg({
+            style: 'danger',
+            title: '消息取得失敗',
+          });
 
-            router.push('/notfound');
-          }
+          router.push('/notfound');
         });
     },
     getSingleNews(id) {
@@ -57,15 +55,13 @@ export default defineStore('newsStore', {
             router.push('/notfound');
           }
         })
-        .catch((err) => {
-          if (err.request.status === 404) {
-            toast.pushMsg({
-              style: 'danger',
-              title: '消息取得失敗',
-            });
+        .catch(() => {
+          toast.pushMsg({
+            style: 'danger',
+            title: '消息取得失敗',
+          });
 
-            router.push('/notfound');
-          }
+          router.push('/notfound');
         });
     },
     getOtherNewsId(id) {
@@ -99,15 +95,13 @@ export default defineStore('newsStore', {
           this.news = res.data.articles;
           this.getSingleNews(id);
         })
-        .catch((err) => {
-          if (err.request.status === 404) {
-            toast.pushMsg({
-              style: 'danger',
-              title: '消息取得失敗',
-            });
+        .catch(() => {
+          toast.pushMsg({
+            style: 'danger',
+            title: '消息取得失敗',
+          });
 
-            router.push('/notfound');
-          }
+          router.push('/notfound');
         });
     },
     getTop4News() {
@@ -120,14 +114,12 @@ export default defineStore('newsStore', {
           this.pagination = res.data.pagination;
           this.isLoading = false;
         })
-        .catch((err) => {
-          if (err.request.status === 404) {
-            toast.pushMsg({
-              style: 'danger',
-              title: '最新消息取得失敗',
-              content: '抱歉，出現系統問題，請聯絡我們！',
-            });
-          }
+        .catch(() => {
+          toast.pushMsg({
+            style: 'danger',
+            title: '最新消息取得失敗',
+            content: '抱歉，出現系統問題，請聯絡我們！',
+          });
         });
     },
     routerPush(id) {

@@ -27,14 +27,12 @@ export default {
           }
           this.offcanvas.hide();
         })
-        .catch((err) => {
-          if (err.request.status === 404) {
-            this.pushMsg({
-              style: 'danger',
-              title: '登入憑證驗證失敗',
-              content: '抱歉，出現系統問題，請聯絡我們！',
-            });
-          }
+        .catch(() => {
+          this.pushMsg({
+            style: 'danger',
+            title: '登入憑證驗證失敗',
+            content: '抱歉，出現系統問題，請聯絡我們！',
+          });
         });
     },
   },

@@ -19,16 +19,14 @@ export default defineStore('adminProductStore', {
           this.products = res.data.products;
           this.isLoading = false;
         })
-        .catch((err) => {
+        .catch(() => {
           this.isLoading = false;
 
-          if (err.request.status === 404) {
-            toast.pushMsg({
-              style: 'danger',
-              title: '商品取得失敗',
-              content: '出現系統問題',
-            });
-          }
+          toast.pushMsg({
+            style: 'danger',
+            title: '商品取得失敗',
+            content: '出現系統問題',
+          });
         });
     },
     deleteProduct(id) {
@@ -53,16 +51,14 @@ export default defineStore('adminProductStore', {
             });
           }
         })
-        .catch((err) => {
+        .catch(() => {
           this.isLoading = false;
 
-          if (err.request.status === 404) {
-            toast.pushMsg({
-              style: 'danger',
-              title: '商品刪除失敗',
-              content: '出現系統問題',
-            });
-          }
+          toast.pushMsg({
+            style: 'danger',
+            title: '商品刪除失敗',
+            content: '出現系統問題',
+          });
         });
     },
     updateProduct(item) {
@@ -95,16 +91,14 @@ export default defineStore('adminProductStore', {
             });
           }
         })
-        .catch((err) => {
+        .catch(() => {
           this.isLoading = false;
 
-          if (err.request.status === 404) {
-            toast.pushMsg({
-              style: 'danger',
-              title: '商品更新失敗',
-              content: '出現系統問題',
-            });
-          }
+          toast.pushMsg({
+            style: 'danger',
+            title: '商品更新失敗',
+            content: '出現系統問題',
+          });
         });
     },
     switchEnable(item) {

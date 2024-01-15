@@ -21,16 +21,14 @@ export default defineStore('adminNewsStore', {
           this.pagination = res.data.pagination;
           this.isLoading = false;
         })
-        .catch((err) => {
+        .catch(() => {
           this.isLoading = false;
 
-          if (err.request.status === 404) {
-            toast.pushMsg({
-              style: 'danger',
-              title: '消息取得失敗',
-              content: '出現系統問題',
-            });
-          }
+          toast.pushMsg({
+            style: 'danger',
+            title: '消息取得失敗',
+            content: '出現系統問題',
+          });
         });
     },
     updateNews(item) {
@@ -63,16 +61,14 @@ export default defineStore('adminNewsStore', {
             });
           }
         })
-        .catch((err) => {
+        .catch(() => {
           this.isLoading = false;
 
-          if (err.request.status === 404) {
-            toast.pushMsg({
-              style: 'danger',
-              title: '消息更新失敗',
-              content: '出現系統問題',
-            });
-          }
+          toast.pushMsg({
+            style: 'danger',
+            title: '消息更新失敗',
+            content: '出現系統問題',
+          });
         });
     },
     deleteNews(id) {
@@ -97,16 +93,14 @@ export default defineStore('adminNewsStore', {
             });
           }
         })
-        .catch((err) => {
+        .catch(() => {
           this.isLoading = false;
 
-          if (err.request.status === 404) {
-            toast.pushMsg({
-              style: 'danger',
-              title: '消息刪除失敗',
-              content: '出現系統問題',
-            });
-          }
+          toast.pushMsg({
+            style: 'danger',
+            title: '消息刪除失敗',
+            content: '出現系統問題',
+          });
         });
     },
     switchPublic(item) {

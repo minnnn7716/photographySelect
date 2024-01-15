@@ -28,16 +28,14 @@ export default defineStore('productStore', {
             router.push(`/products?page=${page}`);
           }
         })
-        .catch((err) => {
-          if (err.request.status === 404) {
-            this.isLoading = false;
+        .catch(() => {
+          this.isLoading = false;
 
-            toast.pushMsg({
-              style: 'danger',
-              title: '取得商品失敗',
-              content: '抱歉，出現系統問題，請聯絡我們！',
-            });
-          }
+          toast.pushMsg({
+            style: 'danger',
+            title: '取得商品失敗',
+            content: '抱歉，出現系統問題，請聯絡我們！',
+          });
         });
     },
     getSingleProduct(id) {
