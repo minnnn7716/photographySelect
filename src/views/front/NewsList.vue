@@ -10,7 +10,9 @@ export default {
   watch: {
     '$route.params': {
       handler() {
-        if (this.$route.query.page) this.getNews(this.$route.query.page);
+        if (this.$route.query.page) {
+          this.getNews(this.$route.query.page);
+        }
       },
       deep: true,
       immediate: true,
@@ -18,11 +20,8 @@ export default {
   },
   methods: {
     ...mapActions(newsStore, ['getNews', 'routerPush']),
-    substr(str) {
-      return str.substr(0, 120);
-    },
-    substrLess(str) {
-      return str.substr(0, 50);
+    substr(str, num) {
+      return str.substr(0, num);
     },
     getEmitPage(page) {
       this.getNews(page);
@@ -64,11 +63,11 @@ export default {
               </div>
               <p
                 class="d-none d-lg-block font-sans-tw fw-light"
-                v-html="substr(item.description)"
+                v-html="substr(item.description, 120)"
               ></p>
               <p
                 class="d-lg-none font-sans-tw fw-light fs-normal-1"
-                v-html="substrLess(item.description)"
+                v-html="substr(item.description, 50)"
               ></p>
             </div>
             <a

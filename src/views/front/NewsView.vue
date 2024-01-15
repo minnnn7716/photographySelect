@@ -26,7 +26,7 @@ export default {
 
 <template>
   <div class="container pt-4 pt-lg-8">
-    <div v-if="singleNews.id !== undefined">
+    <div v-if="singleNews.id">
       <div class="row gx-lg-20 mb-14">
         <div class="col-12 col-lg-6 mb-4 mb-lg-0 d-flex flex-column">
           <div class="overflow-hidden newsView-img flex-grow-1">
