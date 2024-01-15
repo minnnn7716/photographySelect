@@ -1,0 +1,1 @@
+import{l as a}from"./index-90c93330.js";const r=a("toastStore",{state:()=>({message:[]}),actions:{pushMsg(t){const{style:s,title:e,content:o}=t;this.message.push({style:s,title:e,content:o})}}});export{r as t};
