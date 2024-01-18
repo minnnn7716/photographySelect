@@ -12,9 +12,11 @@ export default {
     ToastMessages,
   },
   methods: {
-    ...mapActions(toastStore, ['pushMsg']),
+    ...mapActions(toastStore, ['pushMsg', 'resetMsg']),
   },
   created() {
+    this.resetMsg();
+
     const api = `${import.meta.env.VITE_API}api/user/check`;
     const token = document.cookie.replace(/(?:(?:^|.*;\s*)psToken\s*=\s*([^;]*).*$)|^.*$/, '$1');
     this.$http.defaults.headers.common.Authorization = `${token}`;
